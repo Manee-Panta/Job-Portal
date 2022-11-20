@@ -100,7 +100,7 @@ const RegisterEmployer = () => {
       });
     });
 
-    localStorage.setItem("user-info", JSON.stringify([...data, inpval]));
+    // localStorage.setItem("user-info", JSON.stringify([...data, inpval]));
 
     navigate(`/login/${params.name}`);
     // }
