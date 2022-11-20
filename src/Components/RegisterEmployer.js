@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
 const RegisterEmployer = () => {
-  const baseurl = "http://amrit77.pythonanywhere.com/api";
+  const baseurl = "https://amrit77.pythonanywhere.com/api";
   const params = useParams();
   const navigate = useNavigate();
   const [companyType, setCompanyType] = useState([]);
