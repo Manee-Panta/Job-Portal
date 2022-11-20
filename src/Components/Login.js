@@ -4,6 +4,7 @@ import MainNav from "./MainNav";
 import "../style/login.css";
 import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
+import Swal from 'sweetalert2'
 const Login = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
   const params = useParams();
@@ -40,6 +41,28 @@ const Login = () => {
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
+        result.status == "1"
+        ? Swal.fire({
+          title: 'Login Success!',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Yes'
+        
+        }).then((result) => { 
+          if (result.isConfirmed) {
+           params.name === "Jobseeker"
+            ? navigate("/jobseeker")
+            : navigate("/employer");
+            localStorage.setItem("user-info", JSON.stringify([ inpval]));
+          }
+        })
+        
+        : Swal.fire({
+          title: 'Error!',
+          text: 'Login Failed',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       });
     });
     
@@ -71,9 +94,7 @@ const Login = () => {
     //     } else {
     //       alert("Login Success !!!");
 
-          // params.name === "Jobseeker"
-          //   ? navigate("/jobseeker")
-          //   : navigate("/employer");
+      
         }
       // }
   //   }
@@ -92,7 +113,7 @@ const Login = () => {
               <Form.Group>
                 <Form.Control
                   type="text"
-                  placeholder="Enter Your Username"
+                  placeholder="Enter Your Email"
                   name={params.name === "Jobseeker" ? "email" : "email"}
                   // name='name'
                   onChange={getData}
@@ -105,7 +126,7 @@ const Login = () => {
                     <Form.Control
                       type="text"
                       placeholder="Enter Your Company Name"
-                      name="cname"
+                      name="companyName"
                       onChange={getData}
                     />
                   </Form.Group>

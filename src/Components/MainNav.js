@@ -6,7 +6,7 @@ import {
   Container,
   Nav,
   Dropdown,
-  DropdownButton,
+  DropdownButton, Form, Button
 } from "react-bootstrap";
 import Logout from "./Logout";
 const MainNav = (userlogin) => {
@@ -27,17 +27,24 @@ const MainNav = (userlogin) => {
               </Nav.Link>
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/explore"> Explore</Link>
+                  <Link to="/job"> Job</Link>
+                </li>
+              </Nav.Link>
+             
+              <Nav.Link>
+                <li className="navlist">
+                  <Link to="/explore">Explore</Link>
+                </li>
+              </Nav.Link>
+
+              <Nav.Link>
+                <li className="navlist">
+                  <Link to="/contact"> Contact</Link>
                 </li>
               </Nav.Link>
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/find"> Find</Link>
-                </li>
-              </Nav.Link>
-              <Nav.Link>
-                <li className="navlist">
-                  <Link to="/services"> Services</Link>
+                  <Link to="/search"> Search</Link>
                 </li>
               </Nav.Link>
 
@@ -81,7 +88,7 @@ const MainNav = (userlogin) => {
                 </>
               }
 
-              
+
              
             </Nav>
           </Navbar.Collapse>

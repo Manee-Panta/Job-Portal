@@ -2,22 +2,22 @@ import React, { useState, useEffect, Fragment } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
+import Swal from 'sweetalert2'
 const RegisterEmployer = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
   const params = useParams();
   const navigate = useNavigate();
   const [companyType, setCompanyType] = useState([]);
   const [inpval, setInpval] = useState({
-    'name': "",
-    'companyName': "",
-    'email': "",
-    'address': "",
-    'companyType': "",
-    'password': "",
-    'phone': "",
-    'userType': false
+    name: "",
+    companyName: "",
+    email: "",
+    address: "",
+    companyType: "",
+    password: "",
+    phone: "",
+    userType: false,
   });
-
 
   const getData = (e) => {
     const { value, name } = e.target;
@@ -31,10 +31,10 @@ const RegisterEmployer = () => {
   };
 
   useEffect(() => {
-    fetch(`https://amrit77.pythonanywhere.com/api/job/companyList/`, {
+    fetch(`${baseurl}/job/companyList/`, {
       method: "GET",
       headers: {
-        'Accept': "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then((response) => {
@@ -57,7 +57,7 @@ const RegisterEmployer = () => {
     //   password,
     //   userType,
     // } = inpval;
-    
+
     // const { ename, cname, cemail, caddress, ctype, cphone, password  } = inpval;
     // console.log(inpval);
     // if (name === "") {
@@ -87,23 +87,43 @@ const RegisterEmployer = () => {
     //   console.log(send + "send");
 
     // fetch(`${baseurl}/account/register/`, {
-      console.log(inpval)
+    console.log(inpval);
     fetch(`${baseurl}/account/register/`, {
       method: "POST",
       headers: {
-        'Accept': "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(inpval),
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
+        result.status == "1"
+          ? Swal.fire({
+            title: 'Registration Success!',
+            text: 'Do you want to continue',
+            icon: 'success',
+            confirmButtonText: 'Yes'
+          
+          }).then((result) => { 
+            if (result.isConfirmed) {
+              navigate(`/login/${params.name}`);
+            }
+          })
+          
+          : Swal.fire({
+            title: 'Error!',
+            text: 'Registration Failed',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+          })
       });
     });
 
+    
+    // navigate(`/login/${params.name}`);
     // localStorage.setItem("user-info", JSON.stringify([...data, inpval]));
 
-    navigate(`/login/${params.name}`);
     // }
   };
   return (
@@ -135,7 +155,6 @@ const RegisterEmployer = () => {
                   className="selectInput"
                   name="companyType"
                   id="ctype"
-                 
                   onChange={getData}
                 >
                   <option value="select" disabled selected hidden>
@@ -182,7 +201,6 @@ const RegisterEmployer = () => {
                   onChange={getData}
                 />
               </Form.Group>
-             
 
               <Button className="registerbtn" onClick={addData}>
                 Register

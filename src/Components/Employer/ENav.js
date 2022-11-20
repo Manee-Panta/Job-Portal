@@ -7,9 +7,9 @@ import {
   Dropdown,
   DropdownButton,
 } from "react-bootstrap";
-import '../../style/jobseeker.css'
+import '../../style/employer.css'
 
-const JNav = () => {
+const ENav = () => {
     const [username, setUsername] = useState();
   useEffect(() => {
     const user = localStorage.getItem("user-info");
@@ -35,7 +35,7 @@ const JNav = () => {
                 <li className="navlist ">
                   <DropdownButton id="dropdown-basic-button" title={username}>
                     <Dropdown.Item>
-                      <Link to="/jprofile">Profile</Link>
+                      <Link to="/eprofile">Profile</Link>
                     </Dropdown.Item>
                     <Dropdown.Item>
                       <Link to="/logout">logout</Link>
@@ -47,15 +47,15 @@ const JNav = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div className="jobseeker-nav">
-        <div className="navList"><Link to='/jdashboard'>Dashboard</Link></div>
-        <div className="navList"><Link to='/jprofile'>Profile</Link></div>
-        <div className="navList"><Link to='/jappliedjob'>Applied Jobs</Link></div>
-        <div className="navList"><Link to='/jsetting'>Setting</Link></div>
+      <div className="employer-nav">
+        <div className="navList"><Link to='/edashboard'>Dashboard</Link></div>
+        <div className="navList"><Link to='/eprofile'>Profile</Link></div>
+        <div className="navList"><Link to='/epostjob'>Post Jobs</Link></div>
+        <div className="navList"><Link to='/esetting'>Setting</Link></div>
       </div>
-   
+     
     </div>
   )
 }
 
-export default JNav
+export default ENav

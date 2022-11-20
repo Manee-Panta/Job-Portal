@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import { useParams, Link , useNavigate } from "react-router-dom";
 import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
-
+import Swal from 'sweetalert2'
 const RegisterJobSeeker = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
     const params = useParams();
@@ -68,13 +68,32 @@ const RegisterJobSeeker = () => {
         }).then((response) => {
           response.json().then((result) => {
             console.log(result);
+            result.status == "1"
+            ? Swal.fire({
+              title: 'Registration Success!',
+              text: 'Do you want to continue',
+              icon: 'success',
+              confirmButtonText: 'Yes'
+            
+            }).then((result) => { 
+              if (result.isConfirmed) {
+                navigate(`/login/${params.name}`);
+              }
+            })
+            
+            : Swal.fire({
+              title: 'Error!',
+              text: 'Registration Failed',
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            })
           });
         });
 
 
 
           // localStorage.setItem('user-info', JSON.stringify([...data,inpval]))
-          navigate(`/login/${params.name}`)
+        
 
         
       };
