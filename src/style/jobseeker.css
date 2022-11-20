@@ -1,0 +1,29 @@
+.username{
+    /* border: 2px solid red; */
+margin-left: 80%;
+
+}
+.jobseeker-nav{
+    background-color: #00737e;
+   display: grid;
+   grid-template-columns: auto auto auto auto;
+    margin-top: 7px;
+    padding: 15px;
+}
+.navList{
+/* border: 4px solid red; */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.navList a{
+color: #fff !important;
+
+
+}
+@media only screen and (max-width: 1000px) {
+    .username{
+  
+    margin-left: -80%;
+    }   
+}

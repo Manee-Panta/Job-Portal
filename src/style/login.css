@@ -1,0 +1,62 @@
+.loginMain {
+  display: grid;
+  grid-template-columns: auto auto;
+  /* border: 2px solid green; */
+  margin-top: 50px;
+  width: 100%;
+  height: 70vh;
+}
+
+.login-leftData {
+  padding: 10px;
+  /* border: 3px solid blue; */
+  margin: 10px 90px 20px 0px;
+  background-image: url("../img/login2.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-left: 150px;
+  width: 60%;
+}
+.login-rightData {
+  /* border: 1px solid red; */
+  padding: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  /* margin-left: 10%; */
+}
+.login-rightData input {
+  margin: 25px 0;
+  width: 100%;
+  background-color: rgb(227, 227, 227);
+  border: none;
+  padding: 10px;
+}
+.login-rightData input:focus {
+  outline: 2px solid rgb(242, 242, 242);
+}
+@media only screen and (max-width: 1200px) {
+  .login-leftData {
+    background-size: contain;
+    /* border: 1px solid pink; */
+    margin-top: 50px;
+    margin-right: -10px;
+    height: 300px;
+    width: 300px;
+  }
+  .login-rightData {
+    margin-left: 10%;
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .loginMain {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+  }
+  .login-leftData {
+    display: none;
+  }
+}
