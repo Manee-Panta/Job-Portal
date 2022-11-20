@@ -9,7 +9,7 @@ const Login = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [inpval, setInpval] = useState({
-    name: "",
+    email: "",
     password: "",
     companyName: ""
   });
@@ -93,7 +93,7 @@ const Login = () => {
                 <Form.Control
                   type="text"
                   placeholder="Enter Your Username"
-                  name={params.name === "Jobseeker" ? "name" : "name"}
+                  name={params.name === "Jobseeker" ? "email" : "email"}
                   // name='name'
                   onChange={getData}
                 />

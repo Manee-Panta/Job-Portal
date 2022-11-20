@@ -8,16 +8,16 @@ const RegisterEmployer = () => {
   const navigate = useNavigate();
   const [companyType, setCompanyType] = useState([]);
   const [inpval, setInpval] = useState({
-    name: "",
-    companyName: "",
-    email: "",
-    address: "",
-    companyType: "",
-    password: "",
-    phone: "",
-    userType: false,
+    'name': "",
+    'companyName': "",
+    'email': "",
+    'address': "",
+    'companyType': "",
+    'password': "",
+    'phone': "",
+    'userType': false
   });
-  const [data] = useState([]);
+
 
   const getData = (e) => {
     const { value, name } = e.target;
@@ -34,7 +34,7 @@ const RegisterEmployer = () => {
     fetch(`https://amrit77.pythonanywhere.com/api/job/companyList/`, {
       method: "GET",
       headers: {
-        Accept: "application/json",
+        'Accept': "application/json",
         "Content-Type": "application/json",
       },
     }).then((response) => {
@@ -47,16 +47,16 @@ const RegisterEmployer = () => {
 
   const addData = (e) => {
     e.preventDefault();
-    const {
-      name,
-      companyName,
-      email,
-      address,
-      companyType,
-      phone,
-      password,
-      userType,
-    } = inpval;
+    // const {
+    //   name,
+    //   companyName,
+    //   email,
+    //   address,
+    //   companyType,
+    //   phone,
+    //   password,
+    //   userType,
+    // } = inpval;
     
     // const { ename, cname, cemail, caddress, ctype, cphone, password  } = inpval;
     // console.log(inpval);
@@ -87,10 +87,11 @@ const RegisterEmployer = () => {
     //   console.log(send + "send");
 
     // fetch(`${baseurl}/account/register/`, {
+      console.log(inpval)
     fetch(`${baseurl}/account/register/`, {
       method: "POST",
       headers: {
-        Accept: "application/json",
+        'Accept': "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(inpval),
