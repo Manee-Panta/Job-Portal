@@ -4,7 +4,7 @@ import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
 
 const RegisterJobSeeker = () => {
-  const baseurl = "http://amrit77.pythonanywhere.com/api";
+  const baseurl = "https://amrit77.pythonanywhere.com/api";
     const params = useParams();
     const navigate=useNavigate();
     const [inpval, setInpval] = useState({

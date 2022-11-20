@@ -31,7 +31,7 @@ const RegisterEmployer = () => {
   };
 
   useEffect(() => {
-    fetch(`http://amrit77.pythonanywhere.com/api/job/companyList/`, {
+    fetch(`https://amrit77.pythonanywhere.com/api/job/companyList/`, {
       method: "GET",
       headers: {
         Accept: "application/json",
