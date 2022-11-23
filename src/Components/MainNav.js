@@ -6,10 +6,11 @@ import {
   Container,
   Nav,
   Dropdown,
-  DropdownButton, Form, Button
+  DropdownButton, 
 } from "react-bootstrap";
 import Logout from "./Logout";
-const MainNav = (userlogin) => {
+const MainNav = () => {
+
  
   return (
     <div className="navMain">
@@ -50,7 +51,7 @@ const MainNav = (userlogin) => {
 
 
               {
-                localStorage.getItem('user-info') === userlogin ? (
+                localStorage.getItem('user-info')  ? (
                   <Nav.Link>
                   <li className="navlist">
                     <Logout/>
@@ -87,6 +88,7 @@ const MainNav = (userlogin) => {
               </Nav.Link>
                 </>
               }
+              
 
 
              

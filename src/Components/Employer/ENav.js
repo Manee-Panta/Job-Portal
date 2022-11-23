@@ -10,7 +10,7 @@ import {
 import '../../style/employer.css'
 
 const ENav = () => {
-    const [username, setUsername] = useState();
+    const [username, setUsername] = useState('');
   useEffect(() => {
     const user = localStorage.getItem("user-info");
     // console.log(user)
@@ -48,7 +48,7 @@ const ENav = () => {
         </Container>
       </Navbar>
       <div className="employer-nav">
-        <div className="navList"><Link to='/edashboard'>Dashboard</Link></div>
+        <div className="navList"><Link to='/employer'>Dashboard</Link></div>
         <div className="navList"><Link to='/eprofile'>Profile</Link></div>
         <div className="navList"><Link to='/epostjob'>Post Jobs</Link></div>
         <div className="navList"><Link to='/esetting'>Setting</Link></div>

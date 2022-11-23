@@ -47,46 +47,7 @@ const RegisterEmployer = () => {
 
   const addData = (e) => {
     e.preventDefault();
-    // const {
-    //   name,
-    //   companyName,
-    //   email,
-    //   address,
-    //   companyType,
-    //   phone,
-    //   password,
-    //   userType,
-    // } = inpval;
-
-    // const { ename, cname, cemail, caddress, ctype, cphone, password  } = inpval;
-    // console.log(inpval);
-    // if (name === "") {
-    //   alert("Name field is required");
-    // } else if (name === "") {
-    //   alert("Company Name is required");
-    // } else if (companyType === "") {
-    //   alert("Company Type is required");
-    // } else if (address === "") {
-    //   alert("Cpmpany Address is required");
-    // } else if (phone === "") {
-    //   alert("Company Contact is required");
-    // } else if (phone.length < 10) {
-    //   alert("Invalid Phone Number");
-    // } else if (email === "") {
-    //   alert("Company Email is required");
-    // } else if (!email.includes("@")) {
-    //   alert("Email is invalid");
-    // } else if (password === "") {
-    //   alert("Password is required");
-    // } else if (password.length < 5) {
-    //   alert("Password length must be greater then five");
-    // }  else {
-    //   alert("Registered Successfully");
-    // console.log(inpval);
-    //   const send = inpval.name;
-    //   console.log(send + "send");
-
-    // fetch(`${baseurl}/account/register/`, {
+   
     console.log(inpval);
     fetch(`${baseurl}/account/register/`, {
       method: "POST",
@@ -98,7 +59,7 @@ const RegisterEmployer = () => {
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
-        result.status == "1"
+        result.status === "1"
           ? Swal.fire({
             title: 'Registration Success!',
             text: 'Do you want to continue',
@@ -120,11 +81,7 @@ const RegisterEmployer = () => {
       });
     });
 
-    
-    // navigate(`/login/${params.name}`);
-    // localStorage.setItem("user-info", JSON.stringify([...data, inpval]));
-
-    // }
+  
   };
   return (
     <div>
@@ -156,8 +113,9 @@ const RegisterEmployer = () => {
                   name="companyType"
                   id="ctype"
                   onChange={getData}
+                  defaultValue={'DEFAULT'}
                 >
-                  <option value="select" disabled selected hidden>
+                  <option value="DEFAULT" disabled hidden>
                     Select Company Type
                   </option>
                   {companyType?.data?.map((item, i) => (

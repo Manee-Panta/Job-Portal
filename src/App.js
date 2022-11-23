@@ -5,12 +5,12 @@ import Register from "./Components/Register";
 import Login from "./Components/Login";
 import Employer from "./Components/Employer/Employer";
 import Jobseeker from "./Components/Jobseeker/Jobseeker";
-import JDashboard from "./Components/Jobseeker/JDashboard";
+
 import JProfile from "./Components/Jobseeker/JProfile";
 import JSetting from "./Components/Jobseeker/JSetting";
 import JAppliedJob from "./Components/Jobseeker/JAppliedJob";
 import Logout from "./Components/Logout";
-import EDashboard from "./Components/Employer/EDashboard";
+
 import EProfile from "./Components/Employer/EProfile";
 import EPostJob from "./Components/Employer/EPostJob";
 import ESetting from "./Components/Employer/ESetting";
@@ -19,23 +19,25 @@ import JobDetails from "./Components/JobDetails";
 import Search from "./Components/Search";
 import Contact from "./Components/Contact";
 import Explore from "./Components/Explore";
+import Pratice from "./Pratice";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
+          <Route path="/practice" element={<Pratice />}></Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route path="/register/:name/" element={<Register />}></Route>
           <Route path="/login/:name/" element={<Login />}></Route>
           <Route path="/job" element={<Job />}></Route>
           <Route path="/employer" element={<Employer />}></Route>
           <Route path="/jobseeker" element={<Jobseeker />}></Route>
-          <Route path="/jdashboard" element={<JDashboard />}></Route>
+
           <Route path="/jprofile" element={<JProfile />}></Route>
           <Route path="/jappliedjob" element={<JAppliedJob />}></Route>
           <Route path="/jsetting" element={<JSetting />}></Route>
-          <Route path="/edashboard" element={<EDashboard />}></Route>
+
           <Route path="/eprofile" element={<EProfile />}></Route>
           <Route path="/epostjob" element={<EPostJob />}></Route>
           <Route path="/esetting" element={<ESetting />}></Route>

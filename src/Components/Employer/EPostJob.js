@@ -1,12 +1,16 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, Fragment , useRef } from "react";
+// import { useParams, Link, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import ENav from "./ENav";
 import "../../style/employer.css";
-
+import Swal from 'sweetalert2'
+import JoditEditor from 'jodit-react';
 const EPostJob = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
-  const [jobType, setJobType] = useState()
+  const [jobType, setJobType] = useState();
+  const editor = useRef(null);
+	const [description, setDescription] = useState('');
+
   const [inpval, setInpval] = useState({
     name: "",
     jobtype: "",
@@ -18,7 +22,6 @@ const EPostJob = () => {
 
   const getData = (e) => {
     const { value, name } = e.target;
-
     setInpval(() => {
       return {
         ...inpval,
@@ -27,11 +30,15 @@ const EPostJob = () => {
     });
   };
 
+  const contentFieldChange=(data)=>{
+setInpval({...inpval,'description':data.replace(/<[^>]+>/g, '')})
+  }
+
   useEffect(() => {
     fetch(`${baseurl}/job/jobType/`, {
       method: "GET",
       headers: {
-        'Accept': "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
     }).then((response) => {
@@ -48,26 +55,40 @@ const EPostJob = () => {
     fetch(`${baseurl}/job/postJob/`, {
       method: "POST",
       headers: {
-        'Accept': "application/json",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(inpval),
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
-
+        result.message === "job is successfully saved"
+        ? Swal.fire({
+          title: 'Successfully Posted!',
+          text: 'Do you want to continue',
+          icon: 'success',
+          confirmButtonText: 'Yes'
+        
+        })
+        
+        : Swal.fire({
+          title: 'Error!',
+          text: 'Failed to Post',
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       });
     });
   };
   return (
     <div>
       <ENav />
-<div className="postHeading">
-<h4 >Post a Job</h4>
-<p>Choose Best Candidate For Your Job</p>
-</div>
-      <Form className="postJob" >
-        <Form.Group className="jobList">
+      <div className="epostHeading">
+        <h4>Post a Job</h4>
+        <p>Choose Best Candidate For Your Job</p>
+      </div>
+      <Form className="epostJob">
+        <Form.Group className="ejobList">
           <Form.Control
             type="text"
             placeholder="Enter Job Name"
@@ -75,22 +96,20 @@ const EPostJob = () => {
             onChange={getData}
           />
         </Form.Group>
-        {/* <Form.Group className="jobList">
-          <Form.Control
-            type="text"
-            placeholder="Enter Job Type"
-            name="jobtype"
-            onChange={getData}
-          />
-        </Form.Group> */}
 
         <Form.Select
-          className="jobList"
+          className="ejobList ejobSelect"
           name="jobtype"
           id="ctype"
           onChange={getData}
+          defaultValue={0}
         >
-          <option value="select" disabled selected hidden>
+          <option
+            
+            disabled
+           value={0}
+            className="selectOption"
+          >
             Select Job Type
           </option>
           {jobType?.data?.map((item, i) => (
@@ -100,15 +119,7 @@ const EPostJob = () => {
           ))}
         </Form.Select>
 
-        <Form.Group className="jobList">
-          <Form.Control
-            type="text"
-            placeholder="Enter Job Description"
-            name="description"
-            onChange={getData}
-          />
-        </Form.Group>
-        <Form.Group className="jobList">
+        <Form.Group className="ejobList">
           <Form.Control
             type="text"
             placeholder="Enter Location"
@@ -116,7 +127,7 @@ const EPostJob = () => {
             onChange={getData}
           />
         </Form.Group>
-        <Form.Group className="jobList">
+        <Form.Group className="ejobList">
           <Form.Control
             type="number"
             placeholder="Enter NO. of vaccancy "
@@ -125,13 +136,33 @@ const EPostJob = () => {
           />
         </Form.Group>
 
-        <Form.Group className="jobList">
+        {/* <Form.Group className="ejobList erichText">
+          <Form.Control
+            type="text"
+            placeholder="Enter Job Description"
+            name="description"
+            onChange={getData}
+          >
+          </Form.Control>
+        </Form.Group> */}
+        
+        <Form.Group className="ejobList erichText">
+        <JoditEditor
+			ref={editor}
+			value={description}
+      onChange={contentFieldChange}
+      // name="description"
+			// onChange={newContent => setContent(newContent)}
+		/>
+        </Form.Group>
+
+
+        <Form.Group className="ejobList">
           <Form.Control
             type="file"
             placeholder=" Enter Your Company Logo"
             name="logo"
             onChange={getData}
-            
           />
         </Form.Group>
 
@@ -139,6 +170,7 @@ const EPostJob = () => {
           Post
         </Button>
       </Form>
+      {description}
     </div>
   );
 };

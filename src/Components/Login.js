@@ -41,7 +41,7 @@ const Login = () => {
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
-        result.status == "1"
+        result.status === "1"
         ? Swal.fire({
           title: 'Login Success!',
           text: 'Do you want to continue',
@@ -65,40 +65,8 @@ const Login = () => {
         })
       });
     });
-    
-
-    // const getuserArr = localStorage.getItem("user-info");
-    // console.log(getuserArr)
-    // const { name, cname, password, ename } = inpval;
-    // console.log(inpval);
-    // if (name && ename && cname === "") {
-    //   alert("Name field is required");
-    // } else if (password === "") {
-    //   alert("Password is required");
-    // } else if (password.length < 5) {
-    //   alert("Password length must be greater then five");
-    // } else {
-    //   if (getuserArr && getuserArr.length) {
-    //     const userdata = JSON.parse(getuserArr);
-    //     console.log(userdata);
-    //     const userlogin = userdata.filter((el, k) => {
-    //       return params.name === "Jobseeker"
-    //         ? el.name === name && el.password === password
-    //         : el.ename === ename &&
-    //             el.cname === cname &&
-    //             el.password === password;
-    //       // el.name ===name && el.password===password
-    //     });
-    //     if (userlogin.length === 0) {
-    //       alert("Invalid details");
-    //     } else {
-    //       alert("Login Success !!!");
-
-      
         }
-      // }
-  //   }
-  // };
+    
   return (
     <>
       <MainNav />

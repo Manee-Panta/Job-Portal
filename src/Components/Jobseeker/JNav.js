@@ -48,7 +48,7 @@ const JNav = () => {
         </Container>
       </Navbar>
       <div className="jobseeker-nav">
-        <div className="navList"><Link to='/jdashboard'>Dashboard</Link></div>
+        <div className="navList"><Link to='/jobseeker'>Dashboard</Link></div>
         <div className="navList"><Link to='/jprofile'>Profile</Link></div>
         <div className="navList"><Link to='/jappliedjob'>Applied Jobs</Link></div>
         <div className="navList"><Link to='/jsetting'>Setting</Link></div>

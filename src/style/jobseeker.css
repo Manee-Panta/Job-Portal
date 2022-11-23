@@ -1,29 +1,118 @@
-.username{
-    /* border: 2px solid red; */
-margin-left: 80%;
+.username {
+  /* border: 2px solid red; */
+  margin-left: 80%;
+}
+.jobseeker-nav {
+  background-color: #00737e;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 7px;
+  padding: 15px;
+}
+.navList {
+  /* border: 4px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navList a {
+  color: #fff !important;
+}
+.jdashboardMain {
+  margin-top: 20px !important;
+  /* border: 1px solid red; */
+  padding: 0 100px;
+  /* width: 100vw; */
+}
+.jFirst {
+  background-color: rgb(246, 246, 246);
+  display: flex;
+  width: 100%;
+}
+.jPhoto {
+  /* background-image: url('../img//banner1.jpg'); */
+  height: 150px;
+  width: 150px;
+  margin: 20px;
+  border: 2px solid rgb(237, 237, 242);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.jDetails {
+  /* border: 3px solid rgb(162, 239, 9); */
+  padding: 10px;
+  margin: 20px;
+}
+.jSecond {
+  background-color: #00737e;
+  color: #fff;
+  padding: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 10px 0;
+  width: 100%;
+}
+.jThird {
+  background-color: rgb(237, 234, 231);
+  width: 100%;
+}
+.jprofileMain{
+    border: solid 2px red;
+    display: flex;
+    flex-direction: column;
+}
+.jprofileTop{
+    background-color: #107d8c;
+}
 
-}
-.jobseeker-nav{
-    background-color: #00737e;
-   display: grid;
-   grid-template-columns: auto auto auto auto;
-    margin-top: 7px;
-    padding: 15px;
-}
-.navList{
-/* border: 4px solid red; */
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.navList a{
-color: #fff !important;
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 1000px) {
-    .username{
-  
+  .username {
     margin-left: -80%;
-    }   
+  }
+}
+@media only screen and (max-width: 650px) {
+  .jdashboardMain {
+    padding: 0 0px;
+    margin: 0;
+    width: 100vw;
+  }
+  .jFirst {
+    display: flex;
+    flex-direction: column;
+  }
+  .jTable {
+    font-size: 10px;
+  }
+  .navList a {
+    font-size: 10px;
+  }
 }

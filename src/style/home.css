@@ -3,43 +3,58 @@
   height: 100%;
 }
 .homeimg {
-  background: linear-gradient(rgba(100, 2, 46, 0.755), #118f24b1),
-    url("../img/banner8.jpg");
+  /* background: linear-gradient(rgba(100, 2, 46, 0.755), #118f24b1),
+    url("../img/jobbanner.jpg"); */
+  background: linear-gradient(rgba(13, 5, 16, 0.677), #012106b1),
+    url("../img/jobbanner3.jpg");
+    /* background-image: url('../img/jobbanner3.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
+  /* object-fit: cover; */
   height: 90vh;
   width: 100%;
 }
 .textLayer {
-  margin-left: 60%;
-  padding-top: 15%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
-.textLayer h1 {
-  font-size: 60px;
+.textLayer .title {
+  font-size: 40px;
   color: rgb(159, 185, 94);
   font-weight: lighter;
   font-family: "Holtwood One SC", serif;
   letter-spacing: 0px;
   font-stretch: expanded;
-  animation-name: example ;
+  animation-name: example;
   animation-duration: 5s;
-  animation-delay: 1s; 
+  animation-delay: 1s;
   animation-iteration-count: infinite;
 }
-
+ .quote {
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
 @keyframes example {
   0% {
-    color: rgb(60, 42, 42);
+    color: rgb(159, 185, 94);
   }
   25% {
-    color: rgb(173, 173, 10);
+    color: rgb(230, 230, 53);
   }
   50% {
-    color: rgb(50, 190, 187);
+    color: rgb(109, 233, 231);
+  }
+  75% {
+    color: rgb(239, 90, 222);
   }
   100% {
-    color: rgb(239, 90, 222);
+    color: rgb(224, 129, 13);
   }
 }
 .heroSection {
@@ -48,7 +63,7 @@
   display: grid;
   grid-template-columns: auto auto auto;
   width: 100%;
-  margin: 1px 0;
+  margin: 3px 0;
   height: 20vh;
   padding: 5px;
 }
@@ -60,75 +75,308 @@
   justify-content: center;
   color: white;
 }
-.companyMain{
+.categoryHeading {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  border: 4px solid yellow;
-  gap: 30px;
-  padding: 0 20px;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.categoryHeading h3 {
+  font-weight: bold;
+}
+.categoryHeading p {
+  color: grey;
+  font-size: 10px;
+  letter-spacing: 2px;
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+}
+.jobCategoty {
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  /* background-color: rgb(205, 195, 195); */
+}
+.content {
+  /* border: 3px solid blue; */
+  width: 100%;
+  padding: 40px 100px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.contentBox {
+  /* border: 3px solid yellow; */
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.jobImage {
+  height: 70px;
+  width: 70px;
+  transition: transform .7s ease-in-out;
+}
+.jobImage:hover {
+ 
+  transform: rotateY(180deg);
+
+}
+.jobName {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  margin-top: 10px;
+}
+.jobVaccancy {
+  color: grey;
+  margin-top: -5px;
+}
+.jobData {
+  /* border: 3px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.problemMain {
+  /* border: 4px solid red; */
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  padding: 10px 80px;
+}
+.problemRight {
+  /* border: 5px solid green; */
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  align-items: center;
+  justify-content: center;
+}
+.problemRight h5{
+margin: 30px;
+font-family: cursive;
+font-weight: bold;
+}
+.problemLeft {
+  /* border: 5px solid rgb(26, 56, 205); */
+  background-image: url("../img//banner7.png");
+  background-size: cover;
+  margin: 30px;
+}
+.solutionMain {
+  /* border: 4px solid red; */
+  display: grid;
+  grid-template-columns: 60% 40%;
+  /* height: 450px; */
+  height: 100%;
+  padding: 10px 80px;
+}
+.solutionLeft {
+  /* border: 5px solid green; */
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.solutionLeft h5{
+margin: 30px;
+font-family: cursive;
+font-weight: bold;
+}
+.solutionRight {
+  /* border: 5px solid rgb(26, 56, 205); */
+  background-image: url("../img//banner5.jpg");
+  background-size: cover;
+  margin: 30px;
+}
+/* .topCompany{
+  border: 3px solid brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 .companyData{
-
+  border: 2px solid green;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
   padding: 20px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  margin-top: 10px;
+}
+.companyDetail{
+  border: none;
+  background-color: rgb(250, 249, 249);
+  border-radius: 20px ;
+  box-shadow: 5px 10px  10px 5px grey;
+  height: 50px;
+  padding: 50px;
+  margin: 20px;
   display: flex;
-  width: 30%;
- 
-}
-.companyDetails{
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+} */
+
+
+
+.clientFeedback{
+  /* border: 2px solid red; */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
 }
-.companyData img{
-  width: 100%;
-  height: 300px;
+
+.clientBox{
+/* border: 3px solid blue; */
+display: grid;
+grid-template-columns: 33% 33% 33%;
+text-align: center;
+position: relative;
+perspective: 1000px;
+height: 100%;
+padding: 30px;
+
 }
+.clientDetail{  
+  background-color: rgb(237, 237, 237);
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: justify;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  margin: 30px;
+  padding: 0 20px;
+border-radius: 30px 100px;
+/* border: 3px solid red; */
+}
+.clientBox:hover .clientDetail{
+  transform: rotateY(180deg);
+}
+.flip-card-front ,.flip-card-back{
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+}
+.flip-card-front p {
+  padding:  0 10px;
+}
+.flip-card-back{
+  transform: rotateY(180deg);
+  /* background-color: rgb(101, 95, 95); */
+height: 100%;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: #fff;
+}
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 1050px) {
-  .textLayer h1 {
-    font-size: 40px !important;
-  }
-  .textLayer {
-    margin-left: 65%;
-    padding-top: 20%;
-    height: 100%;
+  .solutionRight , .problemLeft{
+    /* border: 5px solid yellow; */
+margin-top: 120px;
+height: 300px;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .textLayer h1 {
-    font-size: 30px !important;
+ 
+  .content {
+    grid-template-columns: auto auto auto;
+    margin-top: -5px;
   }
-  .textLayer {
-    /* border: 1px solid rgb(13, 255, 0); */
-    margin-left: 67%;
-    padding-top: 25%;
-    height: 100%;
+  .categoryHeading p {
+    padding: 10px 80px;
   }
+  .solutionRight , .problemLeft{
+    display: none;
+  }
+  .problemMain ,.solutionMain{
+    grid-template-columns: auto;
+  }
+  .solutionLeft , .problemRight{
+    padding: 0;
+  }
+  .clientFeedback{
+height: 1200px;
+  }
+  .clientBox{
+display: flex;
+flex-direction: column;
+  }
+  .clientDetail{
+height: 100%;
+margin-top: 20px;
+font-size: 15px;
+
+
+  }
+
+
+
+
+
+
+
+
+
 }
 @media only screen and (max-width: 650px) {
-  .textLayer h1 {
-    font-size: 30px !important;
+  .textLayer{
+    border: 3px solid red;
+    padding: 0 30px;
+
   }
-  .textLayer {
-    margin-left: 5%;
-    padding-top: 30%;
-    height: 100%;
+  .textLayer .title{
+    font-size: 25px;
+  }
+  .textLayer .quote{
+    font-size: 10px;
   }
   .heroSection {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
   .heroElement {
-    border: 1px solid rgba(63, 61, 61, 0.8);
+    border: 1px solid rgba(107, 107, 107, 0.8);
     padding: 5px;
     font-size: 10px;
     text-align: center;
+  }
+
+  .content {
+    grid-template-columns: auto;
+    /* border: 2px solid red;
+   */
+  }
+  .contentBox {
+    /* border: 3px solid yellow; */
+    /* padding: -50px; */
+    margin: -10px;
+  }
+  .solutionMain , .problemMain{
+ padding: 5px 20px;
   }
 }

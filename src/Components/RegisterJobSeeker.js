@@ -31,32 +31,6 @@ const RegisterJobSeeker = () => {
     
       const addData = (e) => {
         e.preventDefault();
-        // const { name, email, address, date, phone, password  ,userType} = inpval;
-        // // console.log(inpval);
-        // if (name === "") {
-        //   alert("Name field is required");
-        // } else if (email === "") {
-        //   alert("Email is required");
-        // } else if (!email.includes("@")) {
-        //   alert("Please enter valid email address");
-        // } else if (address === "") {
-        //   alert("Address is required");
-        // }else if (phone === "") {
-        //   alert("Number is required");
-        // }else if (phone.length <10){
-        //   alert('Invalid Phone Number')
-        // }
-        // else if (date === "") {
-        //   alert("Date is required");
-        // }
-        // else if (password === "") {
-        //   alert("Password is required");
-        // }else if (password.length <5){
-        //   alert('Password length must be greater then five')
-        // }
-        // else{
-        //   alert('Registered Successfully')
-        //   console.log(inpval)
 
         fetch(`${baseurl}/account/register/`, {
           method: "POST",
@@ -68,7 +42,7 @@ const RegisterJobSeeker = () => {
         }).then((response) => {
           response.json().then((result) => {
             console.log(result);
-            result.status == "1"
+            result.status === "1"
             ? Swal.fire({
               title: 'Registration Success!',
               text: 'Do you want to continue',
