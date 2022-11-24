@@ -1,62 +1,101 @@
+.loginCheck{
+  /* border: 10px solid blue; */
+  padding: 10px 50px;
+  height: 100%;
+}
 .loginMain {
+
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 30% 40%;
   /* border: 2px solid green; */
+  padding: 30px 0;
+  align-items: center;
+  justify-content: center;
   margin-top: 50px;
   width: 100%;
-  height: 70vh;
+  height: 100%;
 }
 
+
 .login-leftData {
-  padding: 10px;
-  /* border: 3px solid blue; */
-  margin: 10px 90px 20px 0px;
+ 
+  /* border: 3px solid rgb(77, 255, 0); */
   background-image: url("../img/login2.jpg");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-left: 150px;
-  width: 60%;
+  background-position: center;
+  height: 100%;
+
+
 }
-.login-rightData {
+ .login-rightData {
   /* border: 1px solid red; */
-  padding: 10px;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 30px;
-  /* margin-left: 10%; */
+  padding: 30px;
+display: flex;
+flex-direction: column;
+
+
 }
-.login-rightData input {
-  margin: 25px 0;
-  width: 100%;
-  background-color: rgb(227, 227, 227);
+ .login-rightData input {
+  background-color: rgb(229, 228, 228);
+margin: 20px;
+}
+.loginbtn{
+  background-color: rgba(25, 211, 25, 0.868);
+  padding: 8px;
+  color: white;
   border: none;
-  padding: 10px;
+  margin-left: 20px;
+  font-size: 13px;
 }
-.login-rightData input:focus {
-  outline: 2px solid rgb(242, 242, 242);
+.registerRedirect a{
+  font-size: 10px;
+  color: rgba(225, 49, 0, 0.659);
+  font-weight: bold;
 }
+
+
+
 @media only screen and (max-width: 1200px) {
-  .login-leftData {
-    background-size: contain;
-    /* border: 1px solid pink; */
-    margin-top: 50px;
-    margin-right: -10px;
-    height: 300px;
-    width: 300px;
-  }
-  .login-rightData {
-    margin-left: 10%;
-    width: 400px;
-  }
+
 }
 @media only screen and (max-width: 950px) {
-  .loginMain {
-    /* border: 1px solid blue; */
-    display: flex;
-    flex-direction: column;
-  }
-  .login-leftData {
+  .login-leftData{
     display: none;
   }
+  .loginMain {
+    
+    grid-template-columns: 100% ;
+  }
+  .login-rightData {
+    /* border: 1px solid rgb(49, 10, 225); */
+margin: 0;
+margin-left: 0px;
+display: flex;
+
+
+  
+  }
+  .login-rightData input{
+font-size: 10px; 
+  }
+ .loginHead{
+  font-size: 20px;
+ }
+
+
+}
+@media only screen and (max-width: 450px) {
+  .loginCheck{
+    /* border: 10px solid blue; */
+    padding: 0;
+   
+  }
+  .login-rightData input , .loginbtn {
+    margin-left: 0;
+  }
+  .registerRedirect {
+    margin-left: -15px;
+  }
+
 }

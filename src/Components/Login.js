@@ -68,15 +68,15 @@ const Login = () => {
         }
     
   return (
-    <>
+    <div className="loginWrap ">
       <MainNav />
-      <div className=" ">
+      <div className="loginCheck">
         <section className="loginMain ">
           <div className="login-leftData ">
             <div className="loginimg"></div>
           </div>
           <div className="login-rightData ">
-            <h3 className=" text-center">{params.name} Login</h3>
+            <h3 className=" text-center loginHead">{params.name} Login</h3>
             <Form>
               <Form.Group>
                 <Form.Control
@@ -111,18 +111,20 @@ const Login = () => {
                 />
               </Form.Group>
 
-              <Button className="registerbtn" onClick={addData}>
+              <Button className="loginbtn" onClick={addData}>
                 Login
               </Button>
+          
+              
             </Form>
 
-            <p className="loginRedirect">
+            <p className="registerRedirect">
               <Link to={`/register/${params.name}`}>Don't have an Account</Link>
             </p>
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 
