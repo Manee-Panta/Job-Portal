@@ -64,7 +64,7 @@
   grid-template-columns: auto auto auto;
   width: 100%;
   margin: 3px 0;
-  height: 20vh;
+  height: 15vh;
   padding: 5px;
 }
 .heroElement {
@@ -117,7 +117,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  /* margin: 10px; */
+  width: 100%;
+  height: 100%;
 }
 .jobImage {
   height: 70px;
@@ -143,6 +145,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .problemMain {
   /* border: 4px solid red; */
@@ -198,34 +201,6 @@ font-weight: bold;
   background-size: cover;
   margin: 30px;
 }
-/* .topCompany{
-  border: 3px solid brown;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-.companyData{
-  border: 2px solid green;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  padding: 20px;
-  margin-top: 10px;
-}
-.companyDetail{
-  border: none;
-  background-color: rgb(250, 249, 249);
-  border-radius: 20px ;
-  box-shadow: 5px 10px  10px 5px grey;
-  height: 50px;
-  padding: 50px;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 
 
 .clientFeedback{
@@ -368,8 +343,9 @@ font-size: 15px;
 
   .content {
     grid-template-columns: auto;
-    /* border: 2px solid red;
-   */
+    /* border: 2px solid red; */
+    padding: 0;
+  
   }
   .contentBox {
     /* border: 3px solid yellow; */
@@ -379,4 +355,5 @@ font-size: 15px;
   .solutionMain , .problemMain{
  padding: 5px 20px;
   }
+  
 }

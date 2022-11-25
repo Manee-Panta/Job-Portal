@@ -4,6 +4,7 @@ import "../style/job.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocation , faUser, faLaptopCode  } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./Footer";
 
 const Job = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
@@ -96,6 +97,7 @@ headers:{
         ))}
       </div>
       </div>
+      <Footer/>
     </div>
   );
 };

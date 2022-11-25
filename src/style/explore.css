@@ -1,0 +1,126 @@
+.exploreMain{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid red; */
+}
+.exploreTop{
+/* border: 3px solid green; */
+padding: 40px 100px;
+ display: grid;
+ grid-template-columns: 60% 40%;
+}
+.exploreRight{
+    background-color: #cacbce;
+    text-align: justify;
+    padding: 40px 100px;
+}
+.exploreLeft{
+    height: 100%;
+    width: 100%;
+    /* border: 6px solid brown; */
+}
+.exploreImg{
+height: 100%;
+width: 100%;
+background-size: cover;
+background-image: url('../img/about.jpg');
+}
+.serviceHeading
+{margin-top: 15px;
+    text-align: center;
+}
+.serviceMain{
+    /* border: 2px solid red; */
+    display:grid;
+    grid-template-columns: 20% 20% 20%;
+    padding: 50px 0;
+    /* align-items: center; */
+    justify-content: center;
+    gap: 30px;
+ }
+
+.serviceBox{
+    /* border: 3px solid pink; */
+    background-color: rgba(208, 208, 208, 0.462);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+    
+
+}
+.serviceBox .serviceIcon{
+    min-width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 50%;
+    padding: 8px;
+   position: absolute;
+    margin-top: -50px;
+    margin-left: -30px;  
+}
+.serviceDetail h6{
+    /* border: 4px solid green; */
+    padding: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+    .exploreTop{
+        padding: 40px 20px;
+        }
+  }
+@media only screen and (max-width: 850px) {
+    .exploreTop{
+        padding: 40px 20px;
+        }
+        .exploreRight{
+            padding: 40px 30px;
+        }
+        .serviceMain{
+            grid-template-columns: 30% 30% 30%;
+            padding: 50px 0;
+            gap: 20px;
+         }   
+  }
+@media only screen and (max-width: 650px) {
+    .exploreTop{
+            display: flex;
+         flex-direction: column;
+         padding: 30px 10px;
+         
+  }
+  .exploreLeft{
+display: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+    .serviceMain{
+        grid-template-columns: 100%;
+        padding: 50px 10px;
+        /* gap: 20px; */
+     }  
+}

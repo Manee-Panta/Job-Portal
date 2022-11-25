@@ -83,12 +83,7 @@ width: 180px !important;
     }
     .rightData {
      margin-left: -30%;
-    
     }
-    /* .loginRedirect{
-        width: 300px;
-      
-        } */
   }
   @media only screen and (max-width: 450px) {
     .loginRedirect{

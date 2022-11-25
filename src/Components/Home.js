@@ -135,21 +135,6 @@ const Home = () => {
           {/* Problem Solution Section End */}
 
 
-{/* Tpo Company Start Start */}
-{/* <div className="topCompany">
-  <h5 style={{'fontWeight':'bold' ,'padding':'10px'}}>Our Top Company</h5>
-  <div className="companyData">
-  {
-    companyType?.data?.map((item)=>
-    <div className="companyDetail">
-      <h6>{item.name}</h6>
-    </div>
-    )}
-    </div>
-</div> */}
-{/* Tpo Company Start End */}
-
-
           {/* Client Feedback Start */}
           <div className="clientFeedback">
             <h5 style={{'fontWeight':'bold', 'marginTop':'20px', 'textDecoration':'underline' }}>Our Client Say !!</h5>
