@@ -16,7 +16,9 @@
   justify-content: center;
 }
 .navList a {
-  color: #fff !important;
+  color: #fff ;
+  /* border: 2px solid goldenrod; */
+  padding: 0;
 }
 .jdashboardMain {
   margin-top: 20px !important;
@@ -59,12 +61,52 @@
   width: 100%;
 }
 .jprofileMain{
-    border: solid 2px red;
+    /* border: solid 2px red; */
     display: flex;
     flex-direction: column;
 }
+ 
 .jprofileTop{
-    background-color: #107d8c;
+  /* border: 3px solid green; */
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+}
+.jprofileLeft{
+  /* border: 4px solid blue; */
+ padding: 20px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+.jprofileImg{
+
+  border:4px solid rgb(228, 227, 227);
+  background-image: url('../img/user.png');
+  height: 250px;
+  width: 250px;
+  background-size: cover;
+  border-radius: 50%;
+
+}
+.jprofileRight{
+  padding: 60px;
+}
+a.active {
+  color: rgb(34, 241, 241) !important;
+}
+.jsettingMain{
+  /* border: 2px solid red; */
+  padding: 50px 0px;
+  width: 100%;
+}
+.jsettingForm{
+  /* border: 4px solid green; */
+  height: 100%;
+  width: 100%;
+  padding: 20px 400px;
+
 }
 
 
@@ -86,18 +128,31 @@
 
 
 
+@media only screen and (max-width: 1200px) {
+  .jsettingForm{
+    padding: 20px 100px;
 
-
-
-
-
-
-
-
+  }
+}
 @media only screen and (max-width: 1000px) {
   .username {
     margin-left: -80%;
   }
+  .jprofileRight input{
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .jprofileTop{
+    /* border: 3px solid green; */
+    display:flex;
+    flex-direction: column;
+  }
+  .jprofileImg{
+    height: 200px;
+    width: 200px;  
+  }
+  
 }
 @media only screen and (max-width: 650px) {
   .jdashboardMain {
@@ -116,3 +171,22 @@
     font-size: 10px;
   }
 }
+
+@media only screen and (max-width: 450px) {
+ 
+  .jprofileRight input, .form-select{
+    font-size: 12px;
+  
+  }
+  .jprofileBtn{
+    font-size: 13px;
+  }
+  .jsettingForm{
+    padding: 20px 40px;
+
+  }
+  .jsettingForm input , .jsettingBtn{
+    font-size: 13px;
+  }
+
+} 

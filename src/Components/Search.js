@@ -1,5 +1,6 @@
 import React ,{ useState} from 'react'
 import MainNav from './MainNav'
+import '../style/search.css'
 
 const Search = () => {
     const baseurl = "https://amrit77.pythonanywhere.com/api";
@@ -34,9 +35,15 @@ const Search = () => {
     <div>
         <MainNav/>
 
-        <h3>This is search Page</h3>
+        <div className="searchMain">
+        <div className="searchHeading">
+        <h3>Let's Find Jobs For You</h3>
+        <p>Any Industry. Any Location. Any Experience Level</p>
+        </div>
         
-        <input type="text" onChange={(e) => searchData(e.target.value)} />
+        <div className="searchInput">
+        <input type="text" onChange={(e) => searchData(e.target.value)} placeholder='Job Title or Keyword' />
+        </div>
 
         {data ? (
           <div>
@@ -72,6 +79,7 @@ const Search = () => {
         )}
 
         {nodata ? <div>No data Found</div> : <div></div>}
+        </div>
     </div>
   )
 }

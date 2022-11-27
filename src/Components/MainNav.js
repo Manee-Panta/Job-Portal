@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/navbar.css";
-import { Link } from "react-router-dom";
+import { Link ,NavLink} from "react-router-dom";
 import {
   Navbar,
   Container,
@@ -23,29 +23,29 @@ const MainNav = () => {
             <Nav className="me-auto me-auto-less">
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/"> Home</Link>
+                  <NavLink to="/"> Home</NavLink>
                 </li>
               </Nav.Link>
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/job"> Job</Link>
+                  <NavLink to="/job"> Job</NavLink>
                 </li>
               </Nav.Link>
              
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/explore">Explore</Link>
+                  <NavLink to="/explore">Explore</NavLink>
                 </li>
               </Nav.Link>
 
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/contact"> Contact</Link>
+                  <NavLink to="/contact"> Contact</NavLink>
                 </li>
               </Nav.Link>
               <Nav.Link>
                 <li className="navlist">
-                  <Link to="/search"> Search</Link>
+                  <NavLink to="/search"> Search</NavLink>
                 </li>
               </Nav.Link>
 
@@ -62,14 +62,14 @@ const MainNav = () => {
                 <li className="navlist navRegister">
                   <DropdownButton id="dropdown-basic-button" title="Register">
                     <Dropdown.Item>
-                      <Link to="/register/Employer/">
+                      <NavLink to="/register/Employer/">
                         Register as Employer
-                      </Link>
+                      </NavLink>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                      <Link to="/register/Jobseeker/">
+                      <NavLink to="/register/Jobseeker/">
                         Register as Jobseeker
-                      </Link>
+                      </NavLink>
                     </Dropdown.Item>
                   </DropdownButton>
                 </li>
@@ -78,10 +78,10 @@ const MainNav = () => {
                 <li className="navlist navLogin">
                   <DropdownButton id="dropdown-basic-button" title="Login">
                     <Dropdown.Item>
-                      <Link to="/login/Employer/">Login as Employer</Link>
+                      <NavLink to="/login/Employer/">Login as Employer</NavLink>
                     </Dropdown.Item>
                     <Dropdown.Item>
-                      <Link to="/login/Jobseeker/">Login as Jobseeker</Link>
+                      <NavLink to="/login/Jobseeker/">Login as Jobseeker</NavLink>
                     </Dropdown.Item>
                   </DropdownButton>
                 </li>

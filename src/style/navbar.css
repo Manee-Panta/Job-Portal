@@ -67,6 +67,11 @@ align-content: start;
 .username{
   padding-left: 80%;
 }
+ .navMain a.active {
+  color: rgb(255, 153, 0) !important;
+  font-weight: bold;
+ 
+}
 @media only screen and (max-width: 99px) {
   .me-auto-less {
     width: 100%;

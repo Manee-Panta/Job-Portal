@@ -1,68 +1,112 @@
-.username{
-    /* border: 2px solid red; */
-margin-left: 80%;
+.username {
+  /* border: 2px solid red; */
+  margin-left: 80%;
+}
+.employer-nav {
+  background-color: #00737e;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 7px;
+  padding: 15px;
+}
+.navList {
+  /* border: 4px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navList a {
+  color: #fff !important;
+}
+.epostHeading {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
 
+.epostJob {
+  /* border: 1px solid red; */
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-top: 10px;
+  padding: 20px 0;
+  /* height: 100vh; */
 }
-.employer-nav{
-    background-color: #00737e;
-   display: grid;
-   grid-template-columns: auto auto auto auto;
-    margin-top: 7px;
-    padding: 15px;
-  
+.ejobList {
+  /* padding: 50px; */
+  margin: 15px;
+  width: 100%;
 }
-.navList{
-/* border: 4px solid red; */
-display: flex;
-align-items: center;
-justify-content: center;
+.ejobList input,
+.ejobSelect {
+  background-color: rgb(227, 227, 227);
+  border: none;
+  padding: 10px;
 }
-.navList a{
-color: #fff !important;
+.erichText {
+  width: 100%;
+  /* border: 2px solid green; */
 }
-.epostHeading{ 
-    /* border: 2px solid red; */
-    /* padding: 10px; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.jobPostBtn,
+.esettingBtn,
+.eprofileBtn {
+  background-color: #00737e;
+}
+.eprofileRight input,
+option {
+  background-color: rgb(229, 228, 228);
+}
+.edashboardMain{
+    /* border: 3px solid green; */
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
     justify-content: center;
-    margin-top: 20px;
+   margin-top: 60px;
+   gap: 7%;
+   padding: 50px 50px;
+   height: 100%;
 }
-
-.epostJob{
-    /* border: 1px solid red; */
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 20%;
-    margin-top: 10px;
-    /* height: 100vh; */
-}
-.ejobList{
-    /* padding: 50px; */
-    margin: 15px;
-    width: 100%;
-   
-
-}
-.ejobList input , .ejobSelect{
-    background-color: rgb(227, 227, 227);
+.ebox{
     border: none;
-    padding: 10px;
-     
-}
-.erichText{
-    width: 100%;
-    /* height: 450px; */
-    /* border: 2px solid green; */
+    background-color: rgb(233, 232, 232);
+margin-top: 30px;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20%;
 }
 
 @media only screen and (max-width: 1000px) {
-    .username{
-  
+  .username {
     margin-left: -80%;
-    }   
+  }
+}
+@media only screen and (max-width: 900px) {
+ .eboxRight{
+  /* border: 2px solid red; */
+font-size: 7px;
+ }
+ .edashboardMain{
+  grid-template-columns: 30% 30% 30%;
+
+  /* padding: 30px 50px; */
+}
+}
+@media only screen and (max-width: 750px) { 
+  .edashboardMain{
+    grid-template-columns: 100%;
+    margin-top: 0px;
+    gap: 2%;
+    /* padding: 30px 50px; */
+}
+.ebox{
+margin-top: 0px;
+}
 }

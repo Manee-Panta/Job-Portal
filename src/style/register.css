@@ -69,13 +69,14 @@ width: 180px !important;
 
 @media only screen and (max-width: 950px) {
     .registerMain{
-        /* border: 1px solid blue; */
+        /* border: 3px solid blue; */
         display: flex;
         flex-direction: column;
     }
     .rightData{
         display: none;
     }
+    
   }
 @media only screen and (max-width: 1200px) {
     .rightimg{
@@ -91,7 +92,21 @@ width: 180px !important;
        font-size: 5px;
        margin-left: 0px;
        margin-top: 10px;
-       
-      
+        }
+        .leftData{
+                margin: 0px;
+                padding: 30px;
+                width: 100%;
+        }
+        .leftData input {
+            font-size: 13px;
+        }
+        .leftData h3 {
+            font-size: 15px;
+        }
+        .loginRedirect a {
+            font-size: 12px;
+            margin-left: -15px;
+         
         }
   }

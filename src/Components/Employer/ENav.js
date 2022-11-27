@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import {
   Navbar,
   Container,
@@ -48,10 +48,10 @@ const ENav = () => {
         </Container>
       </Navbar>
       <div className="employer-nav">
-        <div className="navList"><Link to='/employer'>Dashboard</Link></div>
-        <div className="navList"><Link to='/eprofile'>Profile</Link></div>
-        <div className="navList"><Link to='/epostjob'>Post Jobs</Link></div>
-        <div className="navList"><Link to='/esetting'>Setting</Link></div>
+        <div className="navList"><NavLink to='/employer'>Dashboard</NavLink></div>
+        <div className="navList"><NavLink to='/eprofile'>Profile</NavLink></div>
+        <div className="navList"><NavLink to='/epostjob'>Post Jobs</NavLink></div>
+        <div className="navList"><NavLink to='/esetting'>Setting</NavLink></div>
       </div>
      
     </div>

@@ -166,11 +166,11 @@ setInpval({...inpval,'description':data.replace(/<[^>]+>/g, '')})
           />
         </Form.Group>
 
-        <Button className="registerbtn" onClick={addData}>
+        <Button className="jobPostBtn" onClick={addData}>
           Post
         </Button>
       </Form>
-      {description}
+      {/* {description} */}
     </div>
   );
 };
