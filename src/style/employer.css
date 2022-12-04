@@ -18,6 +18,9 @@
 .navList a {
   color: #fff !important;
 }
+/* .epostJobMain{
+border: 4px solid green;
+} */
 .epostHeading {
   /* border: 2px solid red; */
   display: flex;
@@ -95,7 +98,6 @@ font-size: 7px;
  }
  .edashboardMain{
   grid-template-columns: 30% 30% 30%;
-
   /* padding: 30px 50px; */
 }
 }
@@ -108,5 +110,22 @@ font-size: 7px;
 }
 .ebox{
 margin-top: 0px;
+}
+.epostJob{
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  /* border: 4px solid pink; */
+}
+.epostJobMain{
+  padding: 0;
+}
+}
+@media only screen and (max-width: 400px) { 
+.ejobList input{
+  font-size: 12px;
+}
+.jodit-status-bar {
+  display: none !important;
 }
 }

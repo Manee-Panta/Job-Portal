@@ -5,7 +5,9 @@ const JAppliedJob = () => {
   return (
     <div>
         <JNav/>
-        <h3>Your Applied Jobs</h3>
+       <div className="jappliedJobMain">
+       <h3>Your Applied Jobs will be here</h3>
+       </div>
     </div>
   )
 }

@@ -5,16 +5,19 @@ import "../style/login.css";
 import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
 import Swal from 'sweetalert2'
+import { AppContext } from "./CommonContext";
 const Login = () => {
+  const navigate = useNavigate();
   const baseurl = "https://amrit77.pythonanywhere.com/api";
   const params = useParams();
-  const navigate = useNavigate();
+ 
   const [inpval, setInpval] = useState({
     email: "",
     password: "",
     companyName: ""
   });
-  // const [data, setData]=useState([])
+  
+
 
   const getData = (e) => {
     const { value, name } = e.target;
@@ -41,6 +44,10 @@ const Login = () => {
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
+        
+        var u=result.data.uuid;
+        console.log(u)
+       
         result.status === "1"
         ? Swal.fire({
           title: 'Login Success!',
@@ -50,10 +57,16 @@ const Login = () => {
         
         }).then((result) => { 
           if (result.isConfirmed) {
+            // console.log(result)
+            // console.log(inpval)
+           
            params.name === "Jobseeker"
-            ? navigate("/jobseeker")
-            : navigate("/employer");
+            ? navigate("/jobseeker/")
+            // : navigate("/employer");
+           
+            : navigate('/employer/'+u);
             localStorage.setItem("user-info", JSON.stringify([ inpval]));
+          
           }
         })
         
@@ -70,6 +83,7 @@ const Login = () => {
   return (
     <div className="loginWrap ">
       <MainNav />
+      <AppContext.Provider value={inpval}></AppContext.Provider>
       <div className="loginCheck">
         <section className="loginMain ">
           <div className="login-leftData ">

@@ -1,6 +1,6 @@
 import React from "react";
 import "../style/navbar.css";
-import { Link ,NavLink} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import {
   Navbar,
   Container,
@@ -8,7 +8,7 @@ import {
   Dropdown,
   DropdownButton, 
 } from "react-bootstrap";
-import Logout from "./Logout";
+// import Logout from "./Logout";
 const MainNav = () => {
 
  
@@ -50,14 +50,15 @@ const MainNav = () => {
               </Nav.Link>
 
 
-              {
+              {/* {
                 localStorage.getItem('user-info')  ? (
                   <Nav.Link>
                   <li className="navlist">
                     <Logout/>
                   </li>
                 </Nav.Link>
-                ):<>
+                ): */}
+                <>
                 <Nav.Link>
                 <li className="navlist navRegister">
                   <DropdownButton id="dropdown-basic-button" title="Register">
@@ -87,7 +88,7 @@ const MainNav = () => {
                 </li>
               </Nav.Link>
                 </>
-              }
+              {/* } */}
               
 
 

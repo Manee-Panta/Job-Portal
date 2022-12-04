@@ -21,12 +21,15 @@
   font-family: cursive;
   /* font-family: "Dancing Script", cursive; */
   font-weight: bolder;
-  font-size: 35px;
-  color: rgba(229, 22, 22, 0.868);
+  font-size: 30px;
+  /* color: rgba(50, 58, 86, 0.9); */
+  color: #00737e;
+  /* border: 1px solid red; */
+  padding: 10px;
 }
 .brandName:hover {
   cursor: pointer;
-  color: rgba(229, 22, 22, 0.868);
+  color: #00737e;
 }
 .underline {
   position: relative;
@@ -38,8 +41,8 @@
   left: 0;
   height: 20px;
   width: 100%;
-  border: solid 3px rgba(206, 22, 22, 0.868);
-  border-color: rgba(206, 22, 22, 0.868) transparent transparent transparent;
+  border: solid 3px #00737e;
+  border-color: #00737e transparent transparent transparent;
   border-radius: 90%;
 }
 a {
@@ -68,7 +71,7 @@ align-content: start;
   padding-left: 80%;
 }
  .navMain a.active {
-  color: rgb(255, 153, 0) !important;
+  color: rgba(50, 58, 86, 0.9) !important;
   font-weight: bold;
  
 }

@@ -106,10 +106,17 @@ a.active {
   height: 100%;
   width: 100%;
   padding: 20px 400px;
-
 }
-
-
+.jappliedJobMain{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+  height: 80vh;
+}
+.viewLink{
+  color: #00737e;
+}
 
 
 
@@ -152,6 +159,9 @@ a.active {
     height: 200px;
     width: 200px;  
   }
+  .jTable {
+    font-size: 14px;
+  }
   
 }
 @media only screen and (max-width: 650px) {
@@ -188,5 +198,10 @@ a.active {
   .jsettingForm input , .jsettingBtn{
     font-size: 13px;
   }
-
+.viewLink{
+  font-size: 9px;
+  color: rgb(39, 39, 37);
+  padding: 0;
+  /* border: 3px solid red; */
+}
 } 

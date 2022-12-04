@@ -1,6 +1,10 @@
 import React ,{ useState} from 'react'
 import MainNav from './MainNav'
 import '../style/search.css'
+import { Table } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faEye} from '@fortawesome/free-solid-svg-icons'
 
 const Search = () => {
     const baseurl = "https://amrit77.pythonanywhere.com/api";
@@ -46,14 +50,15 @@ const Search = () => {
         </div>
 
         {data ? (
-          <div>
-            <table className="listTable">
-              <thead>
+          <div className='displayTable'>
+            <Table className="listTable">
+              <thead style={{'fontWeight':'bold'}}>
                 <tr>
                   <td>Id</td>
                   <td>Name</td>
                   <td>Type</td>
                   <td>Number</td>
+                  <td>View</td>
                
                 </tr>
               </thead>
@@ -67,12 +72,13 @@ const Search = () => {
                       <td>{item.jobtype.name}</td>
                       <td>{item.name}</td>
                       <td>{item.quantity}</td>
+                      <td><Link to={'/jobdetails/'+item.uuid}><FontAwesomeIcon icon={faEye}/></Link></td>
                       
                     </tr>
                   </>
                 );
               })}
-            </table>
+            </Table>
           </div>
         ) : (
           <div></div>

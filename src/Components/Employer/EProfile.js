@@ -2,9 +2,37 @@ import React, { useEffect, useState ,Fragment} from "react";
 import ENav from './ENav'
 import "../../style/employer.css";
 import { Form, Button } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
 const EProfile = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
   const [display, setDisplay] = useState("");
+  const [inpval,setInpval]=useState({
+    cname:'',
+    clocation:'',
+    cemail:'',
+    cphone:'',
+    cdate:'',
+    ctype:''
+  })
+
+  const getData=(e)=>{
+const{value,name}=e.target;
+setInpval(()=>{
+  return{
+    ...inpval,
+    [name]:value
+  }
+})
+
+  }
+
+  const addProfile=(e)=>{
+e.preventDefault()
+    toast.success('Profile Updated',{
+      position:toast.POSITION.TOP_CENTER
+    })
+    console.log(inpval)
+  }
   useEffect(() => {
     fetch(`${baseurl}/job/companyList/`, {
       method: "GET",
@@ -37,32 +65,30 @@ const EProfile = () => {
             <Form>
               <Form.Group className="mb-3">
               <Form.Label>Enter Company Name</Form.Label>
-                <Form.Control type="text" placeholder="" />
+                <Form.Control type="text" placeholder="" name='cname' onChange={getData}/>
               </Form.Group>
               <Form.Group className="mb-3">
               <Form.Label>Enter Company Location</Form.Label>
-                <Form.Control type="text" placeholder="" />
+                <Form.Control type="text" placeholder="" name='clocation' onChange={getData}/>
               </Form.Group>
               <Form.Group className="mb-3">
               <Form.Label>Enter official Email</Form.Label>
-                <Form.Control type="email" placeholder="" />
+                <Form.Control type="email" placeholder="" name='cemail' onChange={getData}/>
               </Form.Group>
               <Form.Group className="mb-3">
               <Form.Label>Enter Contact Number</Form.Label>
-                <Form.Control type="text" placeholder="" />
+                <Form.Control type="text" placeholder="" name='cphone' onChange={getData}/>
               </Form.Group>
               <Form.Group className="mb-3">
               <Form.Label>Enter Established Date</Form.Label>
-                <Form.Control type="date" placeholder="Enter Established Date" />
+                <Form.Control type="date" placeholder="Enter Established Date" name='cdate' onChange={getData}/>
               </Form.Group>
               <Form.Select
                 className=" mb-3  ejobSelect mt-4"
                 id="ctype"
-                defaultValue={0}
-              >
-                <option disabled value={0} className="selectOption">
-               Company Type
-                </option>
+                name='ctype' onChange={getData}
+                defaultValue={0} >
+                <option disabled value={0} className="selectOption"> Company Type </option>
                 {display?.data?.map((item, i) => (
                   <Fragment key={i}>
                     <option value={item.uuid}>{item.name}</option>
@@ -70,9 +96,10 @@ const EProfile = () => {
                 ))}
               </Form.Select>
 
-              <Button variant="primary" type="submit" className="eprofileBtn">
+              <Button variant="primary" type="submit" className="eprofileBtn" onClick={addProfile}>
                 Send
               </Button>
+              <ToastContainer/>
             </Form>
           </div>
         </div>

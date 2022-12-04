@@ -28,6 +28,7 @@ const RegisterEmployer = () => {
         [name]: value,
       };
     });
+    console.log(inpval)
   };
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const RegisterEmployer = () => {
       },
     }).then((response) => {
       response.json().then((getCompanyList) => {
-        console.log(getCompanyList);
+        // console.log(getCompanyList);
         setCompanyType(getCompanyList);
       });
     });

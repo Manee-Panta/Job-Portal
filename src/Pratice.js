@@ -1,32 +1,20 @@
-import React, { useState, useRef, } from 'react';
-import JoditEditor from 'jodit-react';
+// import React, { useState } from 'react';
+// import ReactQuill from 'react-quill';
+// // import ReactQuill, { Quill } from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
 
-const Pratice = () => {
-  const editor = useRef(null);
-	const [content, setContent] = useState('');
-  const config ={
-    placeholder:'Start Typing.........'
-  }
-
-	// useEffect(()=>{
-  //   console.log(content)
-  // })
-  return (
-    <div>
- <JoditEditor
-			ref={editor}
-			value={content}
-      config={config}
-			onChange={newContent => setContent(newContent)}
-		/>
-    {
-      <p>{content}</p>
-    }
-    </div>
-  )
-}
-
-export default Pratice
+// function Pratice() {
+//   const [value, setValue] = useState('');
+// console.log(value.replace(/<[^>]+>/g, ''))
+//   return (
+//     <div>
+//       <ReactQuill theme="snow" value={value} onChange={setValue} />
+// {value.replace(/<[^>]+>/g, '')}
 
 
+//     </div>
+//   )
+// }
 
+
+// export default Pratice

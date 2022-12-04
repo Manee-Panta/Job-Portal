@@ -1,7 +1,9 @@
 import React from "react";
 import "../style/footer.css";
 import Image from "../img/logo2.png";
+
 const Footer = () => {
+
   return (
     <div className="footerMain">
       <div className="footeritem">
@@ -14,8 +16,8 @@ const Footer = () => {
         </p>
       </div>
       <div className="footeritem">
-        <h3>Quick Links</h3>
-        <li>About Us</li>
+        <h3>Quick Links </h3>
+        <li>About Us </li>
         <li>FAQ/Help</li>
         <li>Privacy Policy</li>
         <li>Terms & Condition</li>

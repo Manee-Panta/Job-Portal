@@ -1,7 +1,8 @@
-import React from "react";
+import React ,{useState} from "react";
 import MainNav from "./MainNav";
 import "../style/contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ToastContainer ,toast } from "react-toastify";
 import {
   faHouse,
   faMailBulk,
@@ -9,6 +10,27 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 const Contact = () => {
+  const [inpval,setInpval]=useState({
+    name:'',
+    email:'',
+    message:''
+  })
+  const getData=(e)=>{
+    const{value,name}=e.target;
+    setInpval(()=>{
+      return{
+        ...inpval,
+        [name]:value
+      }
+    })
+  }
+  const sendMsg=(e)=>{
+    e.preventDefault()
+toast.success('Message Sent Successfully',{
+  position:toast.POSITION.TOP_RIGHT
+})
+console.log(inpval)
+  }
   return (
     <div className='mainDiv'>
       <MainNav />
@@ -55,20 +77,20 @@ const Contact = () => {
           <div className="contactForm">
             <h2>Send Message</h2>
             <div className="inputBox">
-              <input type="text" name='' required='required' />
+              <input type="text" name='name' onChange={getData} required='required' />
               <span>Full Name</span>
             </div>
             <div className="inputBox">
-              <input type="text" name='' required='required' />
+              <input type="text" name='email' onChange={getData} required='required' />
               <span>Email</span>
             </div>
             <div className="inputBox">
-              <textarea name="" id="" required='required'></textarea>
+              <textarea name="message" onChange={getData} id="" required='required'></textarea>
               <span>Type your message.....</span>
             </div>
             <div className="inputBox">
-              <input type="submit" name='' required='required' value='Send'/>
-              
+              <input type="submit" name='' required='required' value='Send' onClick={sendMsg}/>
+              <ToastContainer />
             </div>
           </div>
         </div>

@@ -1,14 +1,15 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment , useContext } from "react";
 import "../style/home.css";
 import MainNav from "./MainNav";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-
+import { AppContext } from "./CommonContext";
 const Home = () => {
   const baseurl = "https://amrit77.pythonanywhere.com/api";
   const [jobType, setJobType] = useState();
-  // const [companyType, setCompanyType] = useState();
+
+const {updateHomePage}=useContext(AppContext)
 
   const getJob = () => {
     fetch(`${baseurl}/job/jobType/`, {
@@ -26,8 +27,8 @@ const Home = () => {
   };
 
   useEffect(() => {
+    updateHomePage()
     getJob();
-    // getCompany()
   }, []);
 
   return (
@@ -37,7 +38,7 @@ const Home = () => {
         <div>
           <div className="homeimg">
             <div className="textLayer">
-              <h1 className="title">Get your dream Job Today</h1>
+              <h1 className="title">Get your dream Job Today </h1>
               <h2 className="quote">
                 "Choose a job you love, and you will never have to work a day in
                 your life"{" "}

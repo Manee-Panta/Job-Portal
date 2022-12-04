@@ -1,11 +1,13 @@
 import React, { useState, useEffect, Fragment , useRef } from "react";
-// import { useParams, Link, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import ENav from "./ENav";
 import "../../style/employer.css";
 import Swal from 'sweetalert2'
 import JoditEditor from 'jodit-react';
+import TurndownService from 'turndown';
 const EPostJob = () => {
+  const turndownService = new TurndownService()
+
   const baseurl = "https://amrit77.pythonanywhere.com/api";
   const [jobType, setJobType] = useState();
   const editor = useRef(null);
@@ -31,7 +33,8 @@ const EPostJob = () => {
   };
 
   const contentFieldChange=(data)=>{
-setInpval({...inpval,'description':data.replace(/<[^>]+>/g, '')})
+setInpval({...inpval,'description':turndownService.turndown(data)})
+
   }
 
   useEffect(() => {
@@ -81,7 +84,7 @@ setInpval({...inpval,'description':data.replace(/<[^>]+>/g, '')})
     });
   };
   return (
-    <div>
+    <div className="epostJobMain">
       <ENav />
       <div className="epostHeading">
         <h4>Post a Job</h4>
@@ -148,12 +151,10 @@ setInpval({...inpval,'description':data.replace(/<[^>]+>/g, '')})
         
         <Form.Group className="ejobList erichText">
         <JoditEditor
+        className="jodit"
 			ref={editor}
 			value={description}
-      onChange={contentFieldChange}
-      // name="description"
-			// onChange={newContent => setContent(newContent)}
-		/>
+      onChange={contentFieldChange}	/>
         </Form.Group>
 
 

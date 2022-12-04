@@ -66,8 +66,8 @@ const Jobseeker = () => {
                   <td>{items.name}</td>
                   <td>{items.quantity}</td>
                   <td>{items.location}</td>
-                  <td>
-                    View Details
+                  <td >
+                   <Link className="viewLink"> View</Link>
                   </td>
                 </tr>
               ))}
