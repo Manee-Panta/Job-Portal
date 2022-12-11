@@ -4,12 +4,14 @@ import MainNav from "./MainNav";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { AppContext } from "./CommonContext";
+import { baseurl } from "../BaseUrl";
+
+
 const Home = () => {
-  const baseurl = "https://amrit77.pythonanywhere.com/api";
+  // const baseurl = "https://amrit77.pythonanywhere.com/api";
   const [jobType, setJobType] = useState();
 
-const {updateHomePage}=useContext(AppContext)
+
 
   const getJob = () => {
     fetch(`${baseurl}/job/jobType/`, {
@@ -27,7 +29,7 @@ const {updateHomePage}=useContext(AppContext)
   };
 
   useEffect(() => {
-    updateHomePage()
+
     getJob();
   }, []);
 

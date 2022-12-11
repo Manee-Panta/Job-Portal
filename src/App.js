@@ -18,6 +18,8 @@ import JobDetails from "./Components/JobDetails";
 import Search from "./Components/Search";
 import Contact from "./Components/Contact";
 import Explore from "./Components/Explore";
+import ViewDetails from "./Components/Jobseeker/ViewDetails";
+import Test from "./Components/Test";
 
 // import Pratice from "./Pratice";
 
@@ -33,8 +35,8 @@ function App() {
             <Route path="/register/:name/" element={<Register />}></Route>
             <Route path="/login/:name/" element={<Login />}></Route>
 
-            <Route path="/employer/:user/" element={<Employer />}></Route>
-            <Route path="/jobseeker" element={<Jobseeker />}></Route>
+            <Route path="/employer" element={<Employer />}></Route>
+            <Route path="/jobseeker/" element={<Jobseeker />}></Route>
 
             <Route path="/job" element={<Job />}></Route>
 
@@ -49,7 +51,9 @@ function App() {
             <Route path="/search" element={<Search />}></Route>
             <Route path="/explore" element={<Explore />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
+            <Route path='/viewDetails/:uuid/' element={<ViewDetails/>}></Route>
             <Route path="/logout" element={<Logout />}></Route>
+            <Route path='/test' element={<Test/>}></Route>
           </Routes>
         </Router>
      

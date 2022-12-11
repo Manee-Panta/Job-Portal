@@ -1,28 +1,59 @@
-import React, {useReducer} from 'react';
-import reducer from './reducer';
-const AppContext =React.createContext();
-const initialState={
-    name:'',
-    image:''
-}
+import React, { useState, useEffect } from "react";
+import { baseurl } from "../BaseUrl";
+const AppContext = React.createContext();
 
+const AppProvider = ({ children }) => {
+  const [useremail, setEmail] = useState("");
+  const [username, setName] = useState("");
+  const [pass, setPass] = useState("");
+  const [company, setCompany] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [uuid, setUuid] = useState("");
+  const[userType, setUserType]=useState()
 
-const AppProvider=({children})=>{
-    const [state,dispatch]=useReducer(reducer,initialState);
-
-    const updateHomePage=()=>{
-        return dispatch({
-            type:'HOME_UPDATE',
-            payload:{
-                name:'Manita Panta',
-                image:'img'
-            }
-        })
+  useEffect(() => {
+    const user = localStorage.getItem("user-info");
+    if (user) {
+      const [userdata] = JSON.parse(user);
+      fetch(`${baseurl}/account/userdetails/?uuid=` + userdata.uuid, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        response.json().then((result) => {
+          console.log(result);
+          setAddress(result.address);
+          setPhone(result.phone);
+          setEmail(result.email);
+          setName(result.first_name);
+          setPass(result.password);
+          setCompany(result.companyName);
+          setUuid(result.uuid);
+          setUserType(result.userType)
+        });
+      });
     }
+  }, []);
 
-    // const data=localStorage.getItem('user-info')
-    return (
-        <AppContext.Provider value={{...state,updateHomePage}}>{children}</AppContext.Provider>
-    )
-}
-export {AppContext,AppProvider}
+  return (
+    <AppContext.Provider
+      value={{
+        username:username,
+        email: useremail,
+        password: pass,
+        company: company,
+        phone: phone,
+        address: address,
+        uuid: uuid,
+        company:company,
+        userType:userType,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
+export { AppContext, AppProvider };

@@ -1,19 +1,23 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment, useRef } from "react";
 import JNav from "./JNav";
 import "../../style/jobseeker.css";
 import { Form, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
+import { baseurl } from "../../BaseUrl";
+import { AppContext } from "../CommonContext";
 const JProfile = () => {
-  const baseurl = "https://amrit77.pythonanywhere.com/api";
+  // let addressRef=useRef()
+  const { username, email, address, phone, uuid } =
+    React.useContext(AppContext);
+
   const [display, setDisplay] = useState("");
   const [inpval, setInpval] = useState({
-    name: "",
     address: "",
-    email: "",
     phone: "",
     education: "",
     interest: "",
   });
+
   const getData = (e) => {
     const { value, name } = e.target;
     setInpval(() => {
@@ -23,19 +27,35 @@ const JProfile = () => {
       };
     });
   };
+
   const updateProfile = (e) => {
     e.preventDefault();
-    const { name, address, email, phone, education, interest } = inpval;
-    if (name && address && email && phone && education && interest === "") {
-      toast.error("Something went wrong !!", {
-        position: toast.POSITION.BOTTOM_CENTER,
+    setInpval({ ...inpval, address: address, phone: phone });
+    console.log(inpval);
+
+    fetch(`${baseurl}/account/register/?uuid=` + uuid, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inpval),
+    }).then((response) => {
+      response.json().then((result) => {
+        console.log(result);
       });
-    } else {
-      toast.success("Profile Updated !!", {
-        position: toast.POSITION.BOTTOM_CENTER,
-      });
-      console.log(inpval);
-    }
+    });
+    // const { name, address, email, phone, education, interest } = inpval;
+    // if (name && address && email && phone && education && interest === "") {
+    //   toast.error("Something went wrong !!", {
+    //     position: toast.POSITION.BOTTOM_CENTER,
+    //   });
+    // } else {
+    //   toast.success("Profile Updated !!", {
+    //     position: toast.POSITION.BOTTOM_CENTER,
+    //   });
+    //   console.log(inpval);
+    // }
   };
   useEffect(() => {
     fetch(`${baseurl}/job/jobType/`, {
@@ -69,10 +89,24 @@ const JProfile = () => {
             <Form>
               <Form.Group className="mb-4">
                 <Form.Control
+                  style={{ backgroundColor: "#bec2c5" }}
                   type="text"
                   placeholder="Enter Name"
                   name="name"
-                  onChange={getData}
+                  value={username}
+                  readOnly
+                  // onChange={getData}
+                />
+              </Form.Group>
+              <Form.Group className="mb-4">
+                <Form.Control
+                  style={{ backgroundColor: "#bec2c5" }}
+                  type="email"
+                  placeholder="Enter Email"
+                  name="email"
+                  value={email}
+                  readOnly
+                  // onChange={getData}
                 />
               </Form.Group>
               <Form.Group className="mb-4">
@@ -80,23 +114,20 @@ const JProfile = () => {
                   type="text"
                   placeholder="Enter Address"
                   name="address"
+                  defaultValue={address}
                   onChange={getData}
+                  // onChange={(e)=>setInpval({...inpval,address:e.target.value})}
                 />
               </Form.Group>
-              <Form.Group className="mb-4">
-                <Form.Control
-                  type="email"
-                  placeholder="Enter Email"
-                  name="email"
-                  onChange={getData}
-                />
-              </Form.Group>
+
               <Form.Group className="mb-4">
                 <Form.Control
                   type="text"
                   placeholder="Enter Contact Number"
                   name="phone"
+                  defaultValue={phone}
                   onChange={getData}
+                  // onChange={(e)=>setInpval({...inpval,phone:e.target.value})}
                 />
               </Form.Group>
               <Form.Group className="mb-4">
@@ -105,6 +136,7 @@ const JProfile = () => {
                   placeholder="Enter Educational Background"
                   name="education"
                   onChange={getData}
+                  // onChange={(e)=>setInpval({...inpval,education:e.target.value})}
                 />
               </Form.Group>
               <Form.Select
@@ -113,6 +145,7 @@ const JProfile = () => {
                 defaultValue={0}
                 name="interest"
                 onChange={getData}
+                // onChange={(e)=>setInpval({...inpval,interest:e.target.value})}
               >
                 <option disabled value={0} className="selectOption">
                   Your Interest

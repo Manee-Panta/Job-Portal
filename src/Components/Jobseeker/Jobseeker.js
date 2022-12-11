@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState  } from "react";
 import JNav from "./JNav";
 import "../../style/jobseeker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link , useParams} from "react-router-dom";
+import { AppContext } from "../CommonContext";
+import Pagination from '../Pagination'
+import { baseurl } from "../../BaseUrl";
 
 const Jobseeker = () => {
-  const baseurl = "https://amrit77.pythonanywhere.com/api";
+  const {email,password,address, phone}=React.useContext(AppContext)
+  const params = useParams()
   const [displayJob, setDisplayJob] = useState([]);
+  const[currentPage,setCurrentPage]=useState(1)
+  const[postsPerPage,setPostsPerPage]=useState(15)
+
 
   useEffect(() => {
+    
     fetch(`${baseurl}/job/jobList`, {
       method: "GET",
       headers: {
@@ -19,14 +27,22 @@ const Jobseeker = () => {
       },
     }).then((response) => {
       response.json().then((result) => {
-        console.log(result);
-        setDisplayJob(result);
+        // console.log(result);
+        setDisplayJob(result.data);
       });
     });
+   
+   
   }, []);
+
+  const lastPostIndex=currentPage * postsPerPage;
+  const firstPostIndex= lastPostIndex - postsPerPage;
+  const currentPosts = displayJob.slice (firstPostIndex,lastPostIndex)
+  // console.log(currentPosts)
+  
   return (
     <div>
-      <JNav />
+      <JNav params= {params} />
       <div className="jdashboardMain">
         <div className="jFirst">
           <div className="jPhoto">
@@ -34,14 +50,14 @@ const Jobseeker = () => {
           </div>
           <div className="jDetails">
             <h6 style={{ fontWeight: "bold", color: "#00737e" }}>
-              Manita Panta
+              Manita Panta {password}
             </h6>
-            <h6 style={{ fontWeight: "lighter" }}>Address : Banepa</h6>
+            <h6 style={{ fontWeight: "lighter" }}>Address : {address}</h6>
             <h6 style={{ fontWeight: "lighter" }}>
-              Email : Pantamanee145@gmail.com
+              Email : {email}
             </h6>
             <h6 style={{ fontWeight: "lighter" }}>
-              Contact Number : 9840264048
+              Contact Number : {phone}
             </h6>
           </div>
         </div>
@@ -60,21 +76,26 @@ const Jobseeker = () => {
               </tr>
             </thead>
             <tbody>
-              {displayJob?.data?.map((items, id) => (
+              { currentPosts?.map((items, id) => (
                 <tr key={id}>
                   <td>{items.jobtype.name}</td>
                   <td>{items.name}</td>
                   <td>{items.quantity}</td>
                   <td>{items.location}</td>
                   <td >
-                   <Link className="viewLink"> View</Link>
+                   <Link className="viewLink" to={'/viewDetails/'+ items.uuid}> View</Link>
                   </td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          
         </div>
+        <Pagination totalPosts={displayJob.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
       </div>
+      
+      
+     
     </div>
   );
 };

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import MainNav from "./MainNav";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import "../style/job.css";
 import Footer from '../Components/Footer'
+
+import { baseurl } from "../BaseUrl";
 const JobDetails = () => {
-  const baseurl = "https://amrit77.pythonanywhere.com/api";
+  // const baseurl = "https://amrit77.pythonanywhere.com/api";
+
   const params = useParams();
   const [displayJob, setDisplayJob] = useState([]);
   useEffect(() => {
@@ -31,6 +36,7 @@ const JobDetails = () => {
       <MainNav />
 
       <div className="jobDescription">
+      <span ><Link to='/job' style={{'color':'#264b5d'}} ><FontAwesomeIcon icon={faArrowLeftLong} size='1x'></FontAwesomeIcon></Link></span>
         {
           <div className="singleJobDes">
             <div className="displayLogo ">

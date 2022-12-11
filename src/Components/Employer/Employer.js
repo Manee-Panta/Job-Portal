@@ -1,34 +1,16 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "../../style/employer.css";
 import ENav from "./ENav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowPointer, faBusinessTime, faEye, faFilter, faUsers } from "@fortawesome/free-solid-svg-icons";
-import { useParams } from "react-router-dom";
+
 
 const Employer = () => {
-const params=useParams()
-const {user}=params
-const baseurl = "https://amrit77.pythonanywhere.com/api";
-useEffect(() => {
 
-  fetch(`${baseurl}/account/login/?uuid=` + params, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  }).then((response) => {
-    response.json().then((result) => {
-      const display = result;
-      console.log(display);
-      // setDisplayJob(display);
-    });
-  });
-}, []);
   return (
     <div>
       <ENav />
-     <p>{user}</p>
+    
       <div className="edashboardMain">
         <div className="ebox">
           <div className="eboxLeft">

@@ -5,9 +5,9 @@ import { Table } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faEye} from '@fortawesome/free-solid-svg-icons'
-
+import { baseurl } from '../BaseUrl'
 const Search = () => {
-    const baseurl = "https://amrit77.pythonanywhere.com/api";
+    // const baseurl = "https://amrit77.pythonanywhere.com/api";
 
     const [data, setdata] = useState();
     const [nodata, setnodata] = useState(false);

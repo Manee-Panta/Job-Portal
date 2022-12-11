@@ -3,15 +3,16 @@ import { useParams, Link , useNavigate } from "react-router-dom";
 import "../style/register.css";
 import { Form, Button } from "react-bootstrap";
 import Swal from 'sweetalert2'
+import { baseurl } from "../BaseUrl";
 const RegisterJobSeeker = () => {
-  const baseurl = "https://amrit77.pythonanywhere.com/api";
+  // const baseurl = "https://amrit77.pythonanywhere.com/api";
     const params = useParams();
     const navigate=useNavigate();
     const [inpval, setInpval] = useState({
         'name': "",
         'email': "",
         'address': "",
-       'date': "",
+         'date': "",
         'password': "",
         'phone': "",
         'userType':true
