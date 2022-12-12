@@ -12,7 +12,7 @@ import {
 import Footer from "./Footer";
 import { baseurl } from "../BaseUrl";
 const Job = () => {
-  // const baseurl = "https://amrit77.pythonanywhere.com/api";
+
   const [displayJob, setDisplayJob] = useState([]);
   const [companyType, setCompanyType] = useState([]);
   const[currentPage,setCurrentPage]=useState(1)
@@ -115,7 +115,8 @@ const Job = () => {
                 </p>
                 <div className="applyBtn">
                   <Link
-                    to={"/jobdetails/" + items.uuid}
+                    // to={"/jobdetails/" + items.uuid}
+                    to={localStorage.getItem('user-info') ?"/jobdetails/" + items.uuid : '/login/Jobseeker' }
                     className="applyLink"
                     onClick={() => showDetails(items.uuid)}
                   >

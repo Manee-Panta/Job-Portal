@@ -11,14 +11,12 @@ import '../../App.css'
 import '../../style/jobseeker.css'
 
 
-const JNav = (props) => {
+const JNav = () => {
     const [username, setUsername] = useState('');
   useEffect(() => {
     const user = localStorage.getItem("user-info");
     // console.log(user)
     const [userdata] = JSON.parse(user);
-    // console.log(userdata)
-    //   console.log(userdata.name)
     setUsername(userdata.email);
   }, [username]);
   return (

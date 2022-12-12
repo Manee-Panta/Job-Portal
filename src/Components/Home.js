@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment , useContext } from "react";
+import React, { useState, useEffect, Fragment, useContext } from "react";
 import "../style/home.css";
 import MainNav from "./MainNav";
 import Footer from "./Footer";
@@ -6,12 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { baseurl } from "../BaseUrl";
 
-
 const Home = () => {
-  // const baseurl = "https://amrit77.pythonanywhere.com/api";
   const [jobType, setJobType] = useState();
-
-
 
   const getJob = () => {
     fetch(`${baseurl}/job/jobType/`, {
@@ -29,7 +25,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-
     getJob();
   }, []);
 
@@ -137,58 +132,64 @@ const Home = () => {
           </div>
           {/* Problem Solution Section End */}
 
-
           {/* Client Feedback Start */}
           <div className="clientFeedback">
-            <h5 style={{'fontWeight':'bold', 'marginTop':'20px', 'textDecoration':'underline' }}>Our Client Say !!</h5>
+            <h5
+              style={{
+                fontWeight: "bold",
+                marginTop: "20px",
+                textDecoration: "underline",
+              }}
+            >
+              Our Client Say !!
+            </h5>
             <div className="clientBox">
               <div className="clientDetail">
                 <div className="flip-card-front">
-                <h5>Manita Panta</h5>
-                <h5>Bhaktapur</h5>
-                <p >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptas, enim cum illum, aspernatur corporis possimus
-                  accusantium tenetur similique earum, quae aperiam? Nostrum
-                  mollitia quos sint odio ad cupiditate quidem totam.
-                </p>
+                  <h5>Manita Panta</h5>
+                  <h5>Bhaktapur</h5>
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Voluptas, enim cum illum, aspernatur corporis possimus
+                    accusantium tenetur similique earum, quae aperiam? Nostrum
+                    mollitia quos sint odio ad cupiditate quidem totam.
+                  </p>
                 </div>
                 <div className="flip-card-back">
-           <FontAwesomeIcon icon={faUser} size='8x'/>
-           <h6 style={{'marginTop':'10px'}}>Manita Panta</h6>
+                  <FontAwesomeIcon icon={faUser} size="8x" />
+                  <h6 style={{ marginTop: "10px" }}>Manita Panta</h6>
                 </div>
               </div>
               <div className="clientDetail">
-           
-              <div className="flip-card-front">
-                <h5>Amrit Thapa</h5>
-                <h5>Bhaktapur</h5>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptas, enim cum illum, aspernatur corporis possimus
-                  accusantium tenetur similique earum, quae aperiam? Nostrum
-                  mollitia quos sint odio ad cupiditate quidem totam.
-                </p>
+                <div className="flip-card-front">
+                  <h5>Amrit Thapa</h5>
+                  <h5>Bhaktapur</h5>
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Voluptas, enim cum illum, aspernatur corporis possimus
+                    accusantium tenetur similique earum, quae aperiam? Nostrum
+                    mollitia quos sint odio ad cupiditate quidem totam.
+                  </p>
                 </div>
                 <div className="flip-card-back">
-                <FontAwesomeIcon icon={faUser} size='8x'/>
-           <h6 style={{'marginTop':'10px'}}>Amrit Thapa</h6>
+                  <FontAwesomeIcon icon={faUser} size="8x" />
+                  <h6 style={{ marginTop: "10px" }}>Amrit Thapa</h6>
                 </div>
               </div>
               <div className="clientDetail">
-              <div className="flip-card-front">
-                <h5>Rajesh Hamal</h5>
-                <h5>Bhaktapur</h5>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Voluptas, enim cum illum, aspernatur corporis possimus
-                  accusantium tenetur similique earum, quae aperiam? Nostrum
-                  mollitia quos sint odio ad cupiditate quidem totam.
-                </p>
+                <div className="flip-card-front">
+                  <h5>Rajesh Hamal</h5>
+                  <h5>Bhaktapur</h5>
+                  <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Voluptas, enim cum illum, aspernatur corporis possimus
+                    accusantium tenetur similique earum, quae aperiam? Nostrum
+                    mollitia quos sint odio ad cupiditate quidem totam.
+                  </p>
                 </div>
                 <div className="flip-card-back">
-                <FontAwesomeIcon icon={faUser} size='8x'/>
-           <h6 style={{'marginTop':'10px'}}>Rajesh Hamal</h6>
+                  <FontAwesomeIcon icon={faUser} size="8x" />
+                  <h6 style={{ marginTop: "10px" }}>Rajesh Hamal</h6>
                 </div>
               </div>
             </div>

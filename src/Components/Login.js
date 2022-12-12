@@ -194,7 +194,8 @@ const Login = () => {
             </Form>
 
             <p className="registerRedirect">
-              <Link to={`/register/${params.name}`}>Don't have an Account</Link>
+              <Link to={`/register/${params.name}`}>Don't have an Account ?</Link>
+              <Link to={`/forgetpassword/`}>Forget Password ?</Link>
             </p>
           </div>
         </section>

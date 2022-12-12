@@ -36,7 +36,7 @@ const AppProvider = ({ children }) => {
         });
       });
     }
-  }, []);
+  }, [useremail,userType,username,pass,address,company,uuid,phone]);
 
   return (
     <AppContext.Provider

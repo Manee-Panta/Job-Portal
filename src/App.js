@@ -20,7 +20,7 @@ import Contact from "./Components/Contact";
 import Explore from "./Components/Explore";
 import ViewDetails from "./Components/Jobseeker/ViewDetails";
 import Test from "./Components/Test";
-
+import ForgetPassword from "./Components/ForgetPassword";
 // import Pratice from "./Pratice";
 
 function App() {
@@ -54,6 +54,7 @@ function App() {
             <Route path='/viewDetails/:uuid/' element={<ViewDetails/>}></Route>
             <Route path="/logout" element={<Logout />}></Route>
             <Route path='/test' element={<Test/>}></Route>
+            <Route path="/forgetpassword" element={<ForgetPassword />}></Route>
           </Routes>
         </Router>
      
