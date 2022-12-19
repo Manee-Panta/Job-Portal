@@ -5,6 +5,8 @@ import { Form, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import { baseurl } from "../../BaseUrl";
 import { AppContext } from "../CommonContext";
+import UserImage from '../../img/login.jpg'
+import img from '../../img/user.png'
 const EProfile = () => {
   const { username, email, address, phone, company, uuid } =
     React.useContext(AppContext);
@@ -57,6 +59,13 @@ const EProfile = () => {
       });
     });
   }, []);
+
+  const [file, setFile] = useState();
+  function handleChange(e) {
+      console.log(e.target.files);
+      setFile(URL.createObjectURL(e.target.files[0]));
+  }
+
   return (
     <div>
       <ENav />
@@ -67,8 +76,11 @@ const EProfile = () => {
               Identity Verification Photo
             </h6>
 
-            <div className="jprofileImg">
-              {/* <img  src={User} alt="img" /> */}
+            <div >
+            
+            <img src={file ? file: img}  className="jprofileImg"
+        />
+            <input type="file" onChange={handleChange} />
             </div>
           </div>
           <div className="jprofileRight eprofileRight">

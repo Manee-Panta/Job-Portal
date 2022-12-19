@@ -21,7 +21,7 @@ import Explore from "./Components/Explore";
 import ViewDetails from "./Components/Jobseeker/ViewDetails";
 import Test from "./Components/Test";
 import ForgetPassword from "./Components/ForgetPassword";
-// import Pratice from "./Pratice";
+import Pratice from "./Pratice";
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
       
         <Router>
           <Routes>
-            {/* <Route path="/practice" element={<Pratice />}></Route> */}
+            <Route path="/practice" element={<Pratice />}></Route>
             <Route exact path="/" element={<Home />}></Route>
             <Route path="/register/:name/" element={<Register />}></Route>
             <Route path="/login/:name/" element={<Login />}></Route>

@@ -26,9 +26,18 @@ const Contact = () => {
   }
   const sendMsg=(e)=>{
     e.preventDefault()
-toast.success('Message Sent Successfully',{
-  position:toast.POSITION.TOP_RIGHT
-})
+    // const {name,email,message}=inpval
+  
+    inpval.email ==='' ?
+     ( toast.error('Email is required',{
+        position:toast.POSITION.TOP_RIGHT
+      }))
+   :
+      (toast.success('Message Sent Successfully',{
+        position:toast.POSITION.TOP_RIGHT
+      }));
+    
+
 console.log(inpval)
   }
   return (

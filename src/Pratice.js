@@ -1,20 +1,24 @@
-// import React, { useState } from 'react';
-// import ReactQuill from 'react-quill';
-// // import ReactQuill, { Quill } from 'react-quill';
-// import 'react-quill/dist/quill.snow.css';
+import React,{useState} from 'react'
+import {Editor} from '@tinymce/tinymce-react'
+const Pratice = () => {
+    const [blog,setBlog]=useState('')
+    const body=blog
+  return (
+    <div>
+<Editor
+textareaName='textarea'
+onEditorChange={(newText)=>{setBlog(newText)}}
+init={{
 
-// function Pratice() {
-//   const [value, setValue] = useState('');
-// console.log(value.replace(/<[^>]+>/g, ''))
-//   return (
-//     <div>
-//       <ReactQuill theme="snow" value={value} onChange={setValue} />
-// {value.replace(/<[^>]+>/g, '')}
+  menubar: false,
+  placeholder: "Ask a question or post an update",
+  
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+}}
+/>
+<div dangerouslySetInnerHTML={{__html: body}}></div>
+    </div>
+  )
+}
 
-
-//     </div>
-//   )
-// }
-
-
-// export default Pratice
+export default Pratice

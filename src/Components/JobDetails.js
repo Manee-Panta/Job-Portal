@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainNav from "./MainNav";
 import { useParams,Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
+// import ReactMarkdown from "react-markdown";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import "../style/job.css";
@@ -9,7 +9,6 @@ import Footer from '../Components/Footer'
 
 import { baseurl } from "../BaseUrl";
 const JobDetails = () => {
-  // const baseurl = "https://amrit77.pythonanywhere.com/api";
 
   const params = useParams();
   const [displayJob, setDisplayJob] = useState([]);
@@ -50,7 +49,8 @@ const JobDetails = () => {
               </div>
 
               <div className="des">
-              <ReactMarkdown>{displayJob.description}</ReactMarkdown>
+              {/* <ReactMarkdown>{displayJob.description}</ReactMarkdown> */}
+              <div dangerouslySetInnerHTML={{__html: displayJob.description}}></div>
               </div>
             </div>
             <div></div>

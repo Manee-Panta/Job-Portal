@@ -62,7 +62,8 @@ const Login = () => {
         const user = result.data.userType;
         const loginUser=result.data.uuid;
         const loginUserName=result.data.name;
-        // console.log(loginUser)
+        const company=result.data.companyName;
+        console.log(company)
 
       
 
@@ -82,7 +83,7 @@ const Login = () => {
                 localStorage.setItem("user-info", JSON.stringify([{ ...inpval,name:loginUserName,userType:user, uuid:loginUser}]));
               }
             });
-          } else if (user === false && params.name === "Employer") {
+          } else if (user === false && params.name === "Employer" ) {
             Swal.fire({
               title: "Login Success!",
               text: "Do you want to continue",
@@ -165,7 +166,7 @@ const Login = () => {
                 />
               </Form.Group>
 
-              {params.name === "Employer" ? (
+              {/* {params.name === "Employer" ? (
                 <>
                   <Form.Group>
                     <Form.Control
@@ -178,7 +179,7 @@ const Login = () => {
                 </>
               ) : (
                 <></>
-              )}
+              )} */}
               <Form.Group>
                 <Form.Control
                   type="password"

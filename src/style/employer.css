@@ -55,6 +55,7 @@ border: 4px solid green;
 }
 .erichText {
   width: 100%;
+
   /* border: 2px solid green; */
 }
 .jobPostBtn,
@@ -84,6 +85,16 @@ margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 20%;
+}
+/* .jodit-status-bar {
+  display: none !important;
+} */
+
+.tox .tox-statusbar {
+  display: none !important;
+}
+tox .tox-notification--warn, .tox .tox-notification--warning {
+  display: none !important;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -125,7 +136,5 @@ margin-top: 0px;
 .ejobList input{
   font-size: 12px;
 }
-.jodit-status-bar {
-  display: none !important;
-}
+
 }

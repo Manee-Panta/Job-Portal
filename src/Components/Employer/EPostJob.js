@@ -3,64 +3,29 @@ import { Form, Button } from "react-bootstrap";
 import ENav from "./ENav";
 import "../../style/employer.css";
 import Swal from "sweetalert2";
+import { Editor } from "@tinymce/tinymce-react";
 import JoditEditor from "jodit-react";
 import TurndownService from "turndown";
-
 import { baseurl } from "../../BaseUrl";
+
 const EPostJob = () => {
-  const turndownService = new TurndownService();
+  // const turndownService = new TurndownService();
 
-  // const baseurl = "https://amrit77.pythonanywhere.com/api";
-  const [jobType, setJobType] = useState();
-  const editor = useRef(null);
+  const [jobType, setJobType] = useState('');
+  // const editor = useRef(null);
   const [description, setDescription] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [inpval, setInpval] = useState({
-    name: "",
-    jobtype: "",
-    description: "",
-    location: "",
-    quantity: "",
-    clogo: "",
-  });
+  const[name,setName]=useState('')
+  const[location,setLocation]=useState('')
+  const[quantity,setQuantity]=useState('')
+  const[clogo,setClogo]=useState('')
+  const[jobtype,setjobtype]=useState('')
 
-  const getData = (e) => {
-    const { value, name } = e.target;
-    setInpval(() => {
-      return {
-        ...inpval,
-        [name]: value,
-      };
-    });
-  };
 
-  const contentFieldChange = (data) => {
-    setInpval({ ...inpval, description: turndownService.turndown(data) });
-  };
-  //   const getLogo=(e)=>{
-  //   const files =e.target.files[0];
-
-  // console.log(typeof files)
-  //   console.log(files)
-  //   console.log(typeof files )
-  //     setInpval({...inpval,'clogo':'https://amrit77.pythonanywhere.com/media/clogo/'+files.name})
-  //      console.log(typeof inpval.clogo)
-
-  //   }
-
-  const getLogo = (e) => {
-    const simage = e.target.files;
-    console.log("simage  " + simage.type);
-
-    const formData = new FormData();
-    formData.append("clogo", simage);
-    console.log("form data " + formData.get("clogo"));
-    const data = formData.get("clogo");
-    setSelectedImage(data);
-    
-    setInpval({ ...inpval, clogo:formData.get("clogo")  });
-  };
-
+  // const contentFieldChange = (data) => {
+  //   console.log(data)
+  //   setDescription(turndownService.turndown(data))
+  // };
+ 
   useEffect(() => {
     fetch(`${baseurl}/job/jobType/`, {
       method: "GET",
@@ -76,19 +41,27 @@ const EPostJob = () => {
     });
   }, []);
 
+
   const addData = (e) => {
     e.preventDefault();
-    console.log(inpval);
+    // console.log(inpval);
+   const formData=new FormData()
+   formData.append('name',name)
+   formData.append('location',location)
+   formData.append('quantity',quantity)
+   formData.append('jobtype',jobtype)
+   formData.append('description',description)
+   formData.append('clogo',clogo)
+   console.log(formData.get("clogo"));
+
+console.log(formData)
+ console.log(jobType)
+    
 
     fetch(`${baseurl}/job/postJob/`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        // "Content-Type": 'multipart/form-data',
-        "Content-Type": "application/json",
-      },
-
-      body: JSON.stringify(inpval),
+      method:'POST',
+      // body:JSON.stringify(formData)
+      body:formData
     }).then((response) => {
       response.json().then((result) => {
         console.log(result);
@@ -111,7 +84,7 @@ const EPostJob = () => {
   return (
     <div className="epostJobMain">
       <ENav />
-      {inpval.clogo}
+      
       <div className="epostHeading">
         <h4>Post a Job</h4>
         <p>Choose Best Candidate For Your Job</p>
@@ -122,7 +95,7 @@ const EPostJob = () => {
             type="text"
             placeholder="Enter Job Name"
             name="name"
-            onChange={getData}
+            onChange={(e)=>setName(e.target.value)}
           />
         </Form.Group>
 
@@ -130,7 +103,8 @@ const EPostJob = () => {
           className="ejobList ejobSelect"
           name="jobtype"
           id="ctype"
-          onChange={getData}
+          // onChange={getData}
+          onChange={(e)=>setjobtype(e.target.value)}
           defaultValue={0}
         >
           <option disabled value={0} className="selectOption">
@@ -148,25 +122,36 @@ const EPostJob = () => {
             type="text"
             placeholder="Enter Location"
             name="location"
-            onChange={getData}
+            // onChange={getData}
+            onChange={(e)=>setLocation(e.target.value)}
           />
         </Form.Group>
         <Form.Group className="ejobList">
           <Form.Control
             type="number"
-            placeholder="Enter NO. of vaccancy "
+            placeholder="Enter No. of vaccancy "
             name="quantity"
-            onChange={getData}
+            // onChange={getData}
+            onChange={(e)=>setQuantity(e.target.value)}
           />
         </Form.Group>
 
         <Form.Group className="ejobList erichText">
-          <JoditEditor
+          {/* <JoditEditor
             className="jodit"
             ref={editor}
             value={description}
             onChange={contentFieldChange}
-          />
+          /> */}
+<Editor
+onEditorChange={(newText)=>{setDescription(newText)}}
+init={{
+  menubar: true,
+  placeholder: "Write your job description here..... ",
+  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+}}
+/>
+
         </Form.Group>
 
         <Form.Group className="ejobList">
@@ -174,10 +159,13 @@ const EPostJob = () => {
             type="file"
             placeholder=" Enter Your Company Logo"
             name="clogo"
-            onChange={getLogo}
+          
+            // onChange={getLogo}
+            onChange={(e)=>setClogo(e.target.files[0])}
+            encType='multipart/formData'
           />
         </Form.Group>
-
+        
         <Button className="jobPostBtn" onClick={addData}>
           Post
         </Button>
